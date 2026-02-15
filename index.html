@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>Seyyed Javad Bozorg Zadeh Razavi – Personal Website</title>
+  <meta content="LLM/NLP researcher and software engineer – publications, projects, teaching, and contact"
+    name="description" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --fg: #0a0a0a;
+      --muted: #666;
+      --accent: #4f46e5;
+      --ring: #10b981;
+      --surface: #fafafa;
+      --border: #e8e8e8;
+      --card-bg: #ffffff;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0a0a0a;
+      --fg: #f5f5f5;
+      --muted: #a1a1a1;
+      --accent: #6366f1;
+      --ring: #34d399;
+      --surface: #1a1a1a;
+      --border: #2a2a2a;
+      --card-bg: #151515;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: Inter, system-ui, Arial, Helvetica, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 40;
+      transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] .site-header {
+      background: rgba(10, 10, 10, .92);
+    }
+
+    .nav {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px
+    }
+
+    .brand {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--fg);
+      transition: color 0.3s ease;
+    }
+
+    .links {
+      display: flex;
+      gap: 4px;
+    }
+
+    .links a {
+      padding: 8px 12px;
+      color: var(--fg);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .links a:hover {
+      background: var(--surface);
+      color: var(--accent);
+    }
+
+    .socials {
+      display: flex;
+      gap: 6px;
+    }
+
+    .socials a,
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      padding: 8px;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      background: var(--card-bg);
+      cursor: pointer;
+    }
+
+    .socials a:hover,
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.15);
+    }
+
+    .theme-toggle {
+      margin-left: 6px;
+    }
+
+    /* Hero with photo */
+    .hero {
+      position: relative;
+      padding: 80px 0 60px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-text {
+      animation: fadeInLeft 0.8s ease;
+    }
+
+    .hero-image {
+      animation: fadeInRight 0.8s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-photo-wrapper {
+      position: relative;
+      width: 320px;
+      height: 320px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 25px 70px rgba(79, 70, 229, 0.25);
+    }
+
+    .photo-bg {
+      position: absolute;
+      inset: -20px;
+      background: linear-gradient(135deg, var(--accent), var(--ring));
+      border-radius: 50%;
+      opacity: 0.1;
+      z-index: 1;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin: 0 0 12px;
+      background: linear-gradient(135deg, var(--fg) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .subtitle {
+      font-size: 20px;
+      color: var(--muted);
+      margin: 8px 0 20px;
+      font-weight: 500;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .badge {
+      border: 1px solid var(--border);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--fg);
+      background: var(--card-bg);
+      transition: all 0.3s ease;
+      cursor: default;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge:hover {
+      transform: translateY(-2px) scale(1.05);
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+    }
+
+    .cta {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: var(--fg);
+      color: var(--bg);
+      border-radius: 16px;
+      padding: 12px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      border: 1px solid var(--fg);
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn.outline {
+      background: var(--card-bg);
+      color: var(--fg);
+      border: 1px solid var(--border);
+    }
+
+    .btn.outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Stats Section */
+    .stats-section {
+      padding: 40px 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15);
+      border-color: var(--accent);
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .section {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      font-size: 22px;
+      margin-bottom: 16px
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .filter {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filter label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-right: 6px
+    }
+
+    .filter select,
+    .search-input {
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: var(--card-bg);
+      color: var(--fg);
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .filter select:focus,
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1;
+      max-width: 300px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding-left: 36px;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    /* About section with image */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .about-photo {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
+    }
+
+    #pubGrid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      background: var(--card-bg);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--ring));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      border-color: var(--accent);
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 6px 0 8px
+    }
+
+    .card .description {
+      margin: 10px 0 12px;
+      color: var(--fg);
+      line-height: 1.6;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 10px 0
+    }
+
+    .tag {
+      border: 1px dashed var(--border);
+      border-radius: 999px;
+      font-size: 12px;
+      padding: 4px 10px;
+      transition: all 0.2s ease;
+      cursor: default;
+      background: var(--surface);
+    }
+
+    .tag:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      border-style: solid;
+    }
+
+    .card a.inline {
+      font-size: 14px;
+      text-decoration: underline dashed;
+      text-underline-offset: 4px;
+      margin-right: 12px;
+      color: var(--accent);
+      transition: all 0.2s ease;
+    }
+
+    .card a.inline:hover {
+      color: var(--ring);
+      text-decoration-style: solid;
+    }
+
+    /* Timeline for Experience */
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), var(--ring));
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 32px;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -34px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 4px var(--surface);
+    }
+
+    /* Skills with proficiency */
+    .skills-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .skill-group {
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .skill-group:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border-color: var(--accent);
+    }
+
+    .skill-group .group-title {
+      font-weight: 700;
+      opacity: .9;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+    }
+
+    .skill-group .tags {
+      margin: 0;
+    }
+
+    .tags .tag {
+      font-size: 12px;
+      padding: 5px 12px;
+    }
+
+    .list {
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--border);
+      transition: all 0.2s ease;
+    }
+
+    .list li:hover {
+      padding-left: 8px;
+      color: var(--accent);
+    }
+
+    .list li:last-child {
+      border-bottom: none;
+    }
+
+    #certList,
+    #honorsList {
+      direction: ltr;
+      text-align: left
+    }
+
+    #certList li,
+    #honorsList li {
+      align-items: flex-start;
+      padding: 12px 0;
+      justify-content: flex-start;
+      gap: 12px
+    }
+
+    #certList li::before,
+    #honorsList li::before {
+      content: "";
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 8px;
+      flex-shrink: 0
+    }
+
+    #certList a {
+      text-decoration: none;
+      color: var(--fg);
+      font-weight: 500;
+      line-height: 1.5;
+      transition: color 0.2s ease;
+    }
+
+    #certList a:hover {
+      text-decoration: underline;
+      color: var(--accent)
+    }
+
+    #honorsList span {
+      line-height: 1.5;
+      flex: 1
+    }
+
+    #elsewhere li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--border)
+    }
+
+    #elsewhere li:last-child {
+      border-bottom: none
+    }
+
+    #elsewhere li span:first-child {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500
+    }
+
+    #elsewhere li span:last-child {
+      text-align: right
+    }
+
+    #elsewhere .inline {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    #elsewhere .inline:hover {
+      text-decoration: underline;
+      color: var(--accent)
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+      background: var(--surface);
+    }
+
+    .foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px
+    }
+
+    .orb {
+      position: fixed;
+      inset: -20%;
+      background: radial-gradient(circle at 30% 30%, rgba(79, 70, 229, .12), transparent 60%), radial-gradient(circle at 75% 60%, rgba(16, 185, 129, .15), transparent 55%);
+      filter: blur(40px);
+      pointer-events: none;
+      z-index: -1;
+      animation: orbMove 20s ease-in-out infinite;
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0)
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0)
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.1
+      }
+
+      50% {
+        transform: scale(1.05);
+        opacity: 0.15
+      }
+    }
+
+    @keyframes orbMove {
+
+      0%,
+      100% {
+        transform: translate(0, 0)
+      }
+
+      50% {
+        transform: translate(20px, 30px)
+      }
+    }
+
+    @media (max-width:860px) {
+      .links {
+        display: none
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      .profile-photo-wrapper {
+        width: 250px;
+        height: 250px;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .cta {
+        justify-content: center;
+      }
+
+      .badges {
+        justify-content: center;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .about-photo {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width:600px) {
+      .hero h1 {
+        font-size: 32px
+      }
+
+      .list li,
+      #elsewhere li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px
+      }
+
+      #elsewhere li span:last-child {
+        text-align: left
+      }
+
+      .section-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .search-box {
+        max-width: 100%;
+      }
+
+      .profile-photo-wrapper {
+        width: 200px;
+        height: 200px;
+      }
+    }
+
+    /* --- Mobile/responsive fixes & accessibility --- */
+    section {
+      scroll-margin-top: 84px;
+    }
+
+    /* prevent sticky header covering anchors */
+    .card-title,
+    .description,
+    .meta {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    img,
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
+    }
+
+    /* reduce min width for small screens */
+    @media (max-width:600px) {
+      .about-photo {
+        width: 100%
+      }
+
+      .card {
+        padding: 16px
+      }
+
+      .badge {
+        font-size: 12px;
+        padding: 5px 10px
+      }
+
+      .stat-number {
+        font-size: 28px
+      }
+    }
+
+    /* Education list styling */
+    .edu-list {
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .edu-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card-bg);
+      padding: 16px;
+      margin-bottom: 12px;
+      transition: all .3s ease
+    }
+
+    .edu-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border-color: var(--accent)
+    }
+
+    .edu-item .degree {
+      font-weight: 600;
+      margin-bottom: 4px
+    }
+
+    .edu-item .school {
+      color: var(--muted)
+    }
+
+    .edu-item .extra {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px
+    }
+  </style>
+  <script defer="" src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.js"></script>
+</head>
+
+<body>
+  <div class="orb"></div>
+  <header class="site-header">
+    <nav class="container nav">
+      <a class="brand" href="#home"><span id="name">SJB Razavi</span></a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <div class="socials" id="socials"></div>
+        <button aria-label="Toggle theme" class="theme-toggle" onclick="toggleTheme()">
+          <span class="icon" data-lucide="moon" id="themeIcon"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Seyyed Javad<br />Bozorg Zadeh Razavi</h1>
+            <p class="subtitle">LLM/NLP Researcher &amp; Software Engineer</p>
+            <p style="color:var(--muted);line-height:1.6;margin:16px 0;">Designing systems that make AI more reliable,
+              fair, and useful—with focus on expert recommendation, question routing, and multilingual NLP.</p>
+            <div class="badges" id="badges"></div>
+            <div class="cta">
+              <a class="btn" href="#publications">See publications <span class="icon"
+                  data-lucide="arrow-up-right"></span></a>
+              <a class="btn outline" href="#contact">Get in touch <span class="icon" data-lucide="mail"></span></a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="profile-photo-wrapper">
+              <div class="photo-bg"></div>
+              <img alt="Seyyed Javad Bozorg Zadeh Razavi" class="profile-photo" id="profilePhoto" src="my_photo.jpg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="stats-section">
+      <div class="container">
+        <div class="stats">
+          <div class="stat-card">
+            <span class="stat-number" data-count="4">0</span>
+            <span class="stat-label">Publications</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-count="7">0</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-count="11">0</span>
+            <span class="stat-label">Certificates</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number" data-count="10">0</span>
+            <span class="stat-label">Teaching Courses</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="title"><span class="icon" data-lucide="user"></span>About Me</div>
+        <p id="aboutText" style="max-width:800px;line-height:1.7;color:var(--muted);"></p>
+        <p style="max-width:800px;line-height:1.7;margin-top:16px;">I'm passionate about building AI systems that
+          understand context, respect diversity, and deliver fair outcomes. My research bridges theoretical frameworks
+          with practical implementations, focusing on crowdsourcing platforms, expert matching algorithms, and large
+          language models for recommendation systems.</p>
+      </div>
+    </section>
+    <section class="section" id="education">
+      <div class="container">
+        <div class="title"><span class="icon" data-lucide="graduation-cap"></span>Education</div>
+        <ul class="edu-list" id="eduList"></ul>
+      </div>
+    </section>
+    <section class="section" id="publications">
+      <div class="container">
+        <div class="section-head">
+          <div class="title"><span class="icon" data-lucide="book-open"></span>Publications</div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;flex:1;justify-content:flex-end;">
+            <div class="search-box">
+              <span class="icon search-icon" data-lucide="search"></span>
+              <input class="search-input" id="pubSearch" placeholder="Search publications..." type="text" />
+            </div>
+            <div class="filter">
+              <label>Year</label>
+              <select id="yearFilter"></select>
+            </div>
+          </div>
+        </div>
+        <div class="grid two" id="pubGrid"></div>
+      </div>
+    </section>
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="title"><span class="icon" data-lucide="code-2"></span>Selected Projects</div>
+        <div class="grid two" id="projGrid"></div>
+      </div>
+    </section>
+    <section class="section" id="teaching">
+      <div class="container grid two">
+        <div>
+          <div class="title"><span class="icon" data-lucide="graduation-cap"></span>Lecturer</div>
+          <ul class="list" id="lecturerList"></ul>
+        </div>
+        <div>
+          <div class="title"><span class="icon" data-lucide="users"></span>Teaching Assistant</div>
+          <ul class="list" id="taList"></ul>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="title"><span class="icon" data-lucide="briefcase"></span>Experience</div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="title"><span class="icon" data-lucide="wrench"></span>Skills</div>
+        <div class="skills-grid" id="skillsWrap"></div>
+      </div>
+    </section>
+    <section class="section" id="honors">
+      <div class="container">
+        <div class="title"><span class="icon" data-lucide="trophy"></span>Honors &amp; Awards</div>
+        <ul class="list" id="honorsList"></ul>
+      </div>
+    </section>
+    <section class="section" id="certificates">
+      <div class="container">
+        <div class="title"><span class="icon" data-lucide="award"></span>Certificates</div>
+        <ul class="list" id="certList"></ul>
+      </div>
+    </section>
+    <section class="section" id="contact">
+      <div class="container grid two">
+        <div class="card">
+          <div class="card-title">Get in Touch</div>
+          <p style="color:var(--muted);margin:12px 0;">I'm always open to discussing research collaborations, new
+            projects, or opportunities in NLP and machine learning.</p>
+          <ul class="list" id="elsewhere" style="margin-top:20px;"></ul>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container foot">
+      <span id="copyright"></span>
+      <a id="curSiteFooter" rel="noreferrer" target="_blank"><span class="icon" data-lucide="arrow-up-right"></span></a>
+    </div>
+  </footer>
+  <script>
+    // --- Content (from CV) ---
+    const DATA = {
+      certificates: [
+        { text: "Federated Fine-tuning of LLMs with Private Data – <span style='color: #4f46e5;'>DeepLearning.AI</span>", href: "https://learn.deeplearning.ai/accomplishments/e61514c5-9051-493f-90af-8c0b65088d1a?usp=sharing" },
+        { text: "Intro to Federated Learning – <span style='color: #4f46e5;'>DeepLearning.AI</span>", href: "https://learn.deeplearning.ai/accomplishments/6823dea6-3f7f-41b8-a21a-da13de277243?usp=sharing" },
+        { text: "Efficiently Serving LLMs – <span style='color: #4f46e5;'>DeepLearning.AI</span>", href: "https://learn.deeplearning.ai/accomplishments/63f21148-9840-408b-ad23-905b2b1002d8?usp=sharing" },
+        { text: "Hands-On Natural Language Processing – <span style='color: #4f46e5;'>National Association of State Boards of Accountancy (NASBA)</span>", href: "./nlp_certificate.pdf" },
+        { text: "Python Data Structures – <span style='color: #4f46e5;'>Coursera</span>", href: "https://www.coursera.org/account/accomplishments/verify/M76L3RKAH6US" },
+        { text: "Programming for Everybody (Getting Started with Python) – <span style='color: #4f46e5;'>Coursera</span>", href: "https://coursera.org/share/88c5c33ea1952d69ab6282212a8ac922" },
+        { text: "Performance optimization and final build file size reduction in Unity3D – <span style='color: #4f46e5;'>Iran Computer and Video Games Foundation</span>", href: "https://en.ircg.ir/" },
+        { text: "Basic and Advanced Java – <span style='color: #4f46e5;'>Fani Va Herfeii</span>", href: "https://international.irantvto.ir/" },
+        { text: "Basic and Advanced C# Programming – <span style='color: #4f46e5;'>Center for Information Technology and Digital Media Development</span>", href: "https://international.irantvto.ir/" }
+      ],
+      honors: [
+        "Reviewer of the 14th International Conference on Computer and Knowledge Engineering (ICCKE)",
+        "Received two BSc degrees simultaneously (Restricted to talented students)",
+        "First rank among BSc degree students in computer architecture engineering",
+        "Among the top 15% of BSc students, software engineering degree",
+        "Head of the Scientific Association of Computer Science, University of Birjand (2018–2020)",
+        "Judge of the Birjand University Annual ACM/ICPC (Sep 2018 – Sep 2020)",
+        "Lecturer of two C# programming courses at the Fani Va Herfeii organization",
+        "Main committee member for the 1st Conference of Healthcare Computing Systems and Technologies (2019)",
+        "Participated at the ICCKE conference 2023, 2024, and 2025"
+      ],
+      siteUrl: "https://bozorgzade.ir/",
+      about: "Researcher focused on large language models, crowdsourcing, expert recommendation, and question routing. I care about clarity and fairness in human–AI systems and build practical ML/NLP solutions.",
+      location: "Mashhad, Iran",
+      email: "mailto:javad.b.razavi@gmail.com",
+      photoUrl: "your-photo.jpg", // Replace with your actual photo path
+      socials: [
+        { label: "GoogleScholar", href: "https://scholar.google.com/citations?user=8sQuGQoAAAAJ&hl=en", icon: "graduation-cap" },
+        { label: "LinkedIn", href: "https://www.linkedin.com/in/b-razavi/", icon: "linkedin" },
+        { label: "GitHub", href: "https://github.com/seyyedjavadrazavi", icon: "github" },
+      ],
+
+      education: [
+        { degree: "Master of Computer Engineering", school: "Ferdowsi University of Mashhad — Department of Computer Engineering", gpa: "4.0", dates: "July 2019 – September 2022", thesis: "Novel Worker Recruitment Method Based on Clarity and Fairness of Requester", thesis_score: "19/20" },
+        { degree: "Bachelor of Software Engineering", school: "University of Birjand — Department of Electrical and Computer Engineering", gpa: "3.41", dates: "September 2015 – September 2019" },
+        { degree: "Bachelor of Computer Systems Architecture", school: "University of Birjand — Department of Electrical and Computer Engineering", gpa: "3.50", dates: "September 2015 – September 2019" }
+      ],
+      badges: ["Large Language Models", "Question Routing", "Expert Recommendation", "Crowdsourcing", "Multilingual NLP", "Federated Learning"],
+      publications: [
+        { title: "Collaborative LLM Reasoning for Vulnerability Detection in Smart Contracts", venue: "15th International Conference on Computer and Knowledge Engineering (ICCKE)", year: 2025, authors: ["A. Samari", "P. Hedayatnia", "SJ. Bozorg Zadeh Razavi", "M. Allahbakhsh", "H. Amintoosi"], description: "Smart contracts often contain subtle bugs that traditional tools miss. While single LLMs can detect vulnerabilities, they are inconsistent and prompt-sensitive. Our collaborative framework combines ChatGPT, Gemini, and Grok with semantic few-shot prompting and a justification-based aggregator. On the SmartBugs benchmark, it achieves 96.25% accuracy with faster responses, providing a robust, scalable, and explainable auditing solution.", tags: ["Smart Contract Security", "Vulnerability Detection", "Large Language Models (LLMs)", "Collaborative LLM Reasoning", "Blockchain"], links: [{ href: "https://ieeexplore.ieee.org/abstract/document/11273846/keywords#keywords", text: "Publisher" }, { href: "https://doi.org/10.1109/ICCKE68588.2025.11273846", text: "DOI" }] },
+        { title: "A Clarity and Fairness Aware Framework for Expert Recommendation in Crowdsourcing Systems", venue: "Computing (Springer)", year: 2024, authors: ["SJ. Bozorg Zadeh Razavi", "H. Amintoosi", "M. Allahbakhsh"], description: "Framework that evaluates requester clarity and fairness, integrating them with task and worker attributes; outperforms prior approaches on real data.", tags: ["Crowdsourcing", "Expert Recommendation", "Clarity", "Fairness"], links: [{ href: "https://link.springer.com/article/10.1007/s00607-024-01316-8", text: "Publisher" }, { href: "https://doi.org/10.1007/s00607-024-01316-8", text: "DOI" }] },
+        { title: "SecVanet: Provably secure authentication protocol for sending emergency events in VANET", venue: "International Conference on Information and Knowledge Technology (IKT)", year: 2023, authors: ["A. Mousavi", "M.S. Sirjani", "S.J. Bozorg Zadeh Razavi", "M. Nikooghadam"], description: "Secure authentication for emergency vehicle communications in VANETs; prevents malicious signals and ensures reliable responses.", tags: ["Authentication", "VANET", "Security"], links: [{ href: "https://ieeexplore.ieee.org/abstract/document/10433027/", text: "Publisher" }, { href: "https://doi.org/10.1109/IKT62039.2023.10433027", text: "DOI" }] },
+        { title: "A Framework for Assessing the Clarity of Contributions in the Q&A System", venue: "Computer Society of Iran Conference (in Persian)", year: 2022, authors: ["S.J. Bozorg Zadeh Razavi", "H. Amintoosi", "M. Allahbakhsh"], description: "Computes clarity of requester task explanations in Q&A/crowdsourcing settings.", tags: ["Clarity", "Crowdsourcing"], links: [{ href: "https://civilica.com/doc/1452936/", text: "Publisher" }, { href: "https://civilica.com/doc/1452936/", text: "DOI" }] }
+      ],
+      projects: [
+        { title: "Sahim Application", blurb: "Platform for building management: contracts, charges, rent payments, resident messaging; includes an LLM assistant for building/home appliance questions.", tags: ["LLM", "Backend", "Product"], href: "#" },
+        { title: "Online Shopping Application", blurb: "Integrated social, marketplace, ride-hailing, and messaging capabilities.", tags: ["Backend", "Realtime", "Microservices"], href: "#" }
+      ],
+      lecturer: [
+        { title: "C# Programming for Beginners", date: "Jan 2017 – Jun 2017" },
+        { title: "Advanced C# Programming", date: "Jan 2018 – Jun 2018" }
+      ],
+      ta: [
+        { title: "Compiler", date: "Jan 2023 – Jun 2023" },
+        { title: "Principles of Software Design", date: "Sep 2022 – Dec 2022" },
+        { title: "Web Programming", date: "Sep 2022 – Dec 2022" },
+        { title: "Introduction to Python Programming", date: "Jan 2021 – Jun 2021" },
+        { title: "Introduction to C++ Programming", date: "Jan 2018 – Jun 2018" },
+        { title: 'Engineering Probability and Statistics <br> (4 semesters / 5 classes)', date: "Jan 2017 – Jan 2019" },
+        { title: "An Introduction to Formal Languages <br>and Automata", date: "Sep 2017 – Dec 2017" },
+        { title: "Data Structures and Algorithms", date: "Jan 2017 – Jun 2017" }
+      ],
+      experience: [
+        { role: "Team Lead, Machine Learning & NLP", org: "Sahim Company", date: "Mar 2023 – Present", bullets: ["Leading development of an LLM for question answering about home appliances and building issues."] },
+        { role: "Research Assistant", org: "Ferdowsi University of Mashhad", date: "Sep 2022 – Present", bullets: ["Expert Recommendation, Question Routing, LLMs for Recommendation"] }
+      ],
+      skills: {
+        languages: ["Python", "C++", "C#", "SQL"],
+        frameworks: [".NET Core", ".NET Framework", "WPF"],
+        web: ["HTML", "CSS", "jQuery", "Bootstrap", "ASP.NET Core"],
+        databases: ["MSSQL", "PostgreSQL", "Access", "MongoDB"],
+        patterns: ["MVC", "MVP"],
+        tools: ["Git", "Project Management", "Unity", "Qt"]
+      },
+      elsewhere: [
+        { label: "LinkedIn", value: "linkedin.com/in/b-razavi/", href: "https://www.linkedin.com/in/b-razavi/", icon: "linkedin" },
+        { label: "Github", value: "github.com/seyyedjavadrazavi", href: "https://github.com/seyyedjavadrazavi", icon: "github" },
+        { label: "Google Scholar", value: "scholar.google.com", href: "https://scholar.google.com/citations?user=8sQuGQoAAAAJ&hl=en", icon: "graduation-cap" },
+        { label: "Email", value: "javad.b.razavi@gmail.com", href: "mailto:javad.b.razavi@gmail.com", icon: "mail" },
+        { label: "Website", value: "bozorgzade.ir", href: "https://bozorgzade.ir", icon: "globe" },
+        { label: "Location", value: "Mashhad, Iran", href: "#", icon: "map-pin" }
+      ]
+    };
+
+    const escapeHtml = (str) => String(str).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#39;");
+
+    // Dark mode toggle
+    let isDark = false;
+    function toggleTheme() {
+      isDark = !isDark;
+      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      document.getElementById('themeIcon').setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+      if (window.lucide) window.lucide.createIcons();
+    }
+
+    // Animate counters
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.count);
+      const duration = 2000;
+      const step = target / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          el.textContent = target;
+          clearInterval(timer);
+        } else {
+          el.textContent = Math.floor(current);
+        }
+      }, 16);
+    }
+
+    // Intersection Observer for scroll animations
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section').forEach(section => observer.observe(section));
+
+    // Animate stats on load
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.stat-number').forEach(animateCounter);
+    });
+
+    // Handle photo error - show placeholder
+    document.getElementById('profilePhoto').onerror = function () {
+      this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="320" height="320"%3E%3Crect width="320" height="320" fill="%234f46e5"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="120" fill="white"%3ESJ%3C/text%3E%3C/svg%3E';
+    };
+
+    // Populate basics
+    document.getElementById("curSiteFooter").href = DATA.siteUrl;
+    document.getElementById("copyright").textContent = `© ${new Date().getFullYear()} Seyyed Javad Bozorg Zadeh Razavi`;
+
+    const socials = document.getElementById("socials");
+    DATA.socials.forEach(s => {
+      const a = document.createElement("a");
+      a.href = s.href; a.target = "_blank"; a.rel = "noreferrer";
+      a.innerHTML = `<span class="icon" data-lucide="${s.icon}"></span>`;
+      socials.appendChild(a);
+    });
+
+    const badges = document.getElementById("badges");
+    DATA.badges.forEach(b => {
+      const span = document.createElement("span");
+      span.className = "badge";
+      span.innerHTML = `<span class="icon" data-lucide="sparkles"></span>${b}`;
+      badges.appendChild(span);
+    });
+
+    document.getElementById("aboutText").textContent = DATA.about;
+
+    // Publications with search
+    const pubGrid = document.getElementById("pubGrid");
+    const yearFilter = document.getElementById("yearFilter");
+    const pubSearch = document.getElementById("pubSearch");
+    const years = Array.from(new Set(DATA.publications.map(p => p.year))).sort((a, b) => b - a);
+    yearFilter.innerHTML = `<option value="all">All</option>` + years.map(y => `<option value="${y}">${y}</option>`).join("");
+
+    function renderPubs() {
+      const val = yearFilter.value;
+      const searchTerm = pubSearch.value.toLowerCase();
+      pubGrid.innerHTML = "";
+      DATA.publications
+        .filter(p => {
+          const yearMatch = val === "all" || String(p.year) === val;
+          const searchMatch = !searchTerm ||
+            p.title.toLowerCase().includes(searchTerm) ||
+            p.description.toLowerCase().includes(searchTerm) ||
+            p.tags.some(t => t.toLowerCase().includes(searchTerm));
+          return yearMatch && searchMatch;
+        })
+        .forEach(p => {
+          const card = document.createElement("div");
+          card.className = "card";
+          card.innerHTML = `
+        <div class="card-title">${p.title}</div>
+        <div class="meta"><b>${p.venue}</b> • ${p.year}</div>
+        <div class="meta">${p.authors.join(", ")}</div>
+        ${p.description ? `<p class="description">${escapeHtml(p.description)}</p>` : ""}
+        <div class="tags">${p.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join(" ")}</div>
+        <div>${p.links.map(l => `<a class="inline" href="${l.href}" target="_blank" rel="noreferrer">${l.text}</a>`).join(" ")}</div>
+      `;
+          pubGrid.appendChild(card);
+        });
+    }
+    yearFilter.addEventListener("change", renderPubs);
+    pubSearch.addEventListener("input", renderPubs);
+    renderPubs();
+
+    // Projects
+    const projGrid = document.getElementById("projGrid");
+    DATA.projects.forEach(pr => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+    <div class="card-title">${pr.title}</div>
+    <p class="description">${escapeHtml(pr.blurb)}</p>
+    <div class="tags">${pr.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join(" ")}</div>
+  `;
+      projGrid.appendChild(card);
+    });
+
+    // Teaching
+    const lecturerList = document.getElementById("lecturerList");
+    const taList = document.getElementById("taList");
+    DATA.lecturer.forEach(t => {
+      const li = document.createElement("li");
+      li.innerHTML = `<span>${t.title}</span><span>${t.date}</span>`;
+      lecturerList.appendChild(li);
+    });
+    DATA.ta.forEach(t => {
+      const li = document.createElement("li");
+      li.innerHTML = `<span>${t.title}</span><span>${t.date}</span>`;
+      taList.appendChild(li);
+    });
+
+    // Experience with timeline
+    const timeline = document.getElementById("timeline");
+    DATA.experience.forEach(e => {
+      const item = document.createElement("div");
+      item.className = "timeline-item";
+      item.innerHTML = `
+    <div class="card">
+      <div class="card-title">${escapeHtml(e.role)} — ${escapeHtml(e.org)}</div>
+      <div class="meta">${escapeHtml(e.date)}</div>
+      ${e.bullets && e.bullets.length ? `<ul style="margin:8px 0 0 20px;">` + e.bullets.map(b => `<li>${escapeHtml(b)}</li>`).join("") + `</ul>` : ""}
+    </div>
+  `;
+      timeline.appendChild(item);
+    });
+
+
+    // Education
+    const eduList = document.getElementById("eduList");
+    if (eduList && DATA.education) {
+      DATA.education.forEach(e => {
+        const li = document.createElement("li");
+        li.className = "edu-item";
+        li.innerHTML = `
+      <div class="degree">${escapeHtml(e.degree)}</div>
+      <div class="school">${escapeHtml(e.school)}</div>
+      <div class="meta">${escapeHtml(e.dates)}${e.gpa ? " • GPA: " + escapeHtml(e.gpa) : ""}</div>
+      ${e.thesis ? `<div class="extra"><b>Thesis:</b> ${escapeHtml(e.thesis)}${e.thesis_score ? ` (Score: ${escapeHtml(e.thesis_score)})` : ""}</div>` : ""}
+    `;
+        eduList.appendChild(li);
+      });
+    }
+
+    // Honors
+    const honorsList = document.getElementById("honorsList");
+    DATA.honors.forEach(h => {
+      const li = document.createElement("li");
+      li.innerHTML = `<span>${escapeHtml(h)}</span>`;
+      honorsList.appendChild(li);
+    });
+
+    // Certificates
+    const certList = document.getElementById("certList");
+    DATA.certificates.forEach(cert => {
+      const li = document.createElement("li");
+      if (cert && typeof cert === "object" && cert.href) {
+        li.innerHTML = `<a href="${cert.href}" target="_blank" rel="noreferrer">${cert.text || ""}</a>`;
+      } else {
+        li.innerHTML = `<span>${typeof cert === "string" ? cert : ""}</span>`;
+      }
+      certList.appendChild(li);
+    });
+
+    // Skills
+    const skillsWrap = document.getElementById("skillsWrap");
+    skillsWrap.innerHTML = "";
+    const toTitle = (key) => key.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+    Object.entries(DATA.skills).forEach(([groupName, items]) => {
+      const group = document.createElement("div");
+      group.className = "skill-group";
+      const title = document.createElement("div");
+      title.className = "group-title";
+      title.textContent = toTitle(groupName);
+      const tags = document.createElement("div");
+      tags.className = "tags column";
+      items.forEach(s => {
+        const span = document.createElement("span");
+        span.className = "tag";
+        span.textContent = s;
+        tags.appendChild(span);
+      });
+      group.appendChild(title);
+      group.appendChild(tags);
+      skillsWrap.appendChild(group);
+    });
+
+    // Elsewhere
+    const elsewhere = document.getElementById("elsewhere");
+    DATA.elsewhere.forEach(e => {
+      const li = document.createElement("li");
+      li.innerHTML = `
+    <span><span class="icon" data-lucide="${e.icon}"></span> ${escapeHtml(e.label)}</span>
+    <span><a class="inline" href="${e.href}" target="_blank" rel="noreferrer">${escapeHtml(e.value)}</a></span>
+  `;
+      elsewhere.appendChild(li);
+    });
+
+    // Initialize Lucide icons
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(() => {
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      }, 100);
+    });
+
+    window.addEventListener('load', function () {
+      if (window.lucide && window.lucide.createIcons) {
+        window.lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+
+</html>
