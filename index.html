@@ -667,7 +667,7 @@
       height: 6px;
       border-radius: 50%;
       background: var(--accent);
-      margin-top: 8px;
+      margin-top: 9px;
       flex-shrink: 0;
     }
 
@@ -677,6 +677,7 @@
       font-weight: 500;
       line-height: 1.5;
       transition: color 0.2s ease;
+      flex: 1;
     }
 
     #certList a:hover {
@@ -684,9 +685,114 @@
       color: var(--accent);
     }
 
-    #honorsList span {
+    #honorsList span.honor-text {
       line-height: 1.5;
       flex: 1;
+    }
+
+    /* Clickable Certificate Badge */
+    .cert-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: inherit;
+      color: var(--accent);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .cert-btn:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+    }
+
+    /* Certificate Lightbox Modal */
+    .cert-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .cert-modal-backdrop.open {
+      display: flex;
+    }
+
+    .cert-modal {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 900px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .cert-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      gap: 12px;
+    }
+
+    .cert-modal-title {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--fg);
+      line-height: 1.4;
+    }
+
+    .cert-modal-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .cert-modal-body {
+      padding: 16px;
+      overflow: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--surface);
+      min-height: 420px;
+    }
+
+    .cert-modal-body img {
+      max-width: 100%;
+      max-height: 75vh;
+      border-radius: 8px;
+      object-fit: contain;
+    }
+
+    .cert-modal-body iframe {
+      width: 100%;
+      height: 75vh;
+      border: none;
+      border-radius: 8px;
     }
 
     #elsewhere li {
@@ -912,6 +1018,12 @@
         gap: 6px;
       }
 
+      #honorsList li,
+      #certList li {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
       #elsewhere li span:last-child {
         text-align: left;
       }
@@ -941,6 +1053,11 @@
 
       .stat-number {
         font-size: 28px;
+      }
+
+      .cert-modal-header {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -1146,6 +1263,25 @@
       </div>
     </section>
   </main>
+
+  <!-- Certificate Preview Modal -->
+  <div class="cert-modal-backdrop" id="certModal" onclick="closeCertModal(event)">
+    <div class="cert-modal" onclick="event.stopPropagation()">
+      <div class="cert-modal-header">
+        <span class="cert-modal-title" id="certModalTitle">Certificate Preview</span>
+        <div class="cert-modal-actions">
+          <a class="cert-btn" id="certModalExternal" href="#" target="_blank" rel="noreferrer">
+            Open in New Tab <span class="icon" data-lucide="external-link" style="width:14px;height:14px;"></span>
+          </a>
+          <button aria-label="Close modal" class="theme-toggle" onclick="closeCertModal()" style="padding:6px;"
+            type="button">
+            <span class="icon" data-lucide="x"></span>
+          </button>
+        </div>
+      </div>
+      <div class="cert-modal-body" id="certModalBody"></div>
+    </div>
+  </div>
 
   <footer class="site-footer">
     <div class="container foot">
@@ -1405,10 +1541,22 @@
       },
 
       honors: [
-        "Peer Reviewer, International Conference on Artificial Intelligence, Computer, Data Sciences and Applications (ACDSA 2027) – University of Campinas (UNICAMP), Brazil",
-        "Peer Reviewer, International Conference on Artificial Intelligence, Computer, Data Sciences and Applications (ACDSA 2026) – University of Santo Tomas, Philippines",
-        "Peer Reviewer, International Conference on Electrical, Computer and Energy Technologies (ICECET 2026) – Politecnico di Milano, Italy",
-        "Peer Reviewer, 14th International Conference on Computer and Knowledge Engineering (ICCKE) – Ferdowsi University of Mashhad",
+        {
+          text: "Peer Reviewer, International Conference on Artificial Intelligence, Computer, Data Sciences and Applications (ACDSA 2027) – University of Campinas (UNICAMP), Brazil",
+          cert: "./certificates/acdsa-2027-reviewer.pdf"
+        },
+        {
+          text: "Peer Reviewer, International Conference on Artificial Intelligence, Computer, Data Sciences and Applications (ACDSA 2026) – University of Santo Tomas, Philippines",
+          cert: "./certificates/acdsa-2026-reviewer.pdf"
+        },
+        {
+          text: "Peer Reviewer, International Conference on Electrical, Computer and Energy Technologies (ICECET 2026) – Politecnico di Milano, Italy",
+          cert: "./certificates/icecet-2026-reviewer.pdf"
+        },
+        {
+          text: "Peer Reviewer, 14th International Conference on Computer and Knowledge Engineering (ICCKE) – Ferdowsi University of Mashhad",
+          cert: "./certificates/iccke-reviewer.pdf"
+        },
         "Awarded Dual B.Sc. Degrees Simultaneously in Software Engineering and Computer Systems Architecture (Restricted to top-ranked talented students)",
         "Ranked 1st among B.Sc. students in Computer Systems Architecture Engineering, University of Birjand",
         "Ranked in the Top 15% of B.Sc. students in Software Engineering, University of Birjand",
@@ -1435,7 +1583,9 @@
         },
         {
           text: "Hands-On Natural Language Processing – <span style='color: var(--accent);'>National Association of State Boards of Accountancy (NASBA)</span>",
-          href: "./nlp_certificate.pdf"
+          title: "Hands-On Natural Language Processing – NASBA",
+          href: "./nlp_certificate.pdf",
+          modal: true
         },
         {
           text: "Python Data Structures – <span style='color: var(--accent);'>Coursera</span>",
@@ -1506,6 +1656,40 @@
       document.getElementById('themeIcon').setAttribute('data-lucide', isDark ? 'sun' : 'moon');
       if (window.lucide) window.lucide.createIcons();
     }
+
+    // Certificate Modal open/close functions
+    function openCertModal(title, url) {
+      const modal = document.getElementById("certModal");
+      const titleEl = document.getElementById("certModalTitle");
+      const bodyEl = document.getElementById("certModalBody");
+      const extLink = document.getElementById("certModalExternal");
+
+      titleEl.textContent = title || "Certificate Preview";
+      extLink.href = url;
+
+      const isPdf = url.toLowerCase().split("?")[0].endsWith(".pdf");
+      if (isPdf) {
+        bodyEl.innerHTML = `<iframe src="${escapeHtml(url)}" title="${escapeHtml(title)}"></iframe>`;
+      } else {
+        bodyEl.innerHTML = `<img src="${escapeHtml(url)}" alt="${escapeHtml(title)}" />`;
+      }
+
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCertModal(e) {
+      if (e && e.target !== document.getElementById("certModal")) return;
+      const modal = document.getElementById("certModal");
+      const bodyEl = document.getElementById("certModalBody");
+      modal.classList.remove("open");
+      bodyEl.innerHTML = "";
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeCertModal();
+    });
 
     // Animate counters
     function animateCounter(el) {
@@ -1708,20 +1892,58 @@
       skillsWrap.appendChild(group);
     });
 
-    // Honors, Awards & Academic Service
+    // Honors, Awards & Academic Service (with clickable certificate preview)
     const honorsList = document.getElementById("honorsList");
     DATA.honors.forEach(h => {
       const li = document.createElement("li");
-      li.innerHTML = `<span>${escapeHtml(h)}</span>`;
+      if (typeof h === "object" && h !== null) {
+        const span = document.createElement("span");
+        span.className = "honor-text";
+        span.textContent = h.text;
+        li.appendChild(span);
+
+        if (h.cert) {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "cert-btn";
+          btn.dataset.title = h.text;
+          btn.dataset.cert = h.cert;
+          btn.innerHTML = `<span class="icon" data-lucide="file-badge" style="width:14px;height:14px;"></span> View Certificate`;
+          btn.addEventListener("click", () => openCertModal(h.text, h.cert));
+          li.appendChild(btn);
+        }
+      } else {
+        const span = document.createElement("span");
+        span.className = "honor-text";
+        span.textContent = h;
+        li.appendChild(span);
+      }
       honorsList.appendChild(li);
     });
 
-    // Certificates
+    // Certificates & Accomplishments
     const certList = document.getElementById("certList");
     DATA.certificates.forEach(cert => {
       const li = document.createElement("li");
       if (cert && typeof cert === "object" && cert.href) {
-        li.innerHTML = `<a href="${cert.href}" target="_blank" rel="noreferrer">${cert.text || ""}</a>`;
+        if (cert.modal) {
+          const a = document.createElement("a");
+          a.href = cert.href;
+          a.innerHTML = cert.text || "";
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            openCertModal(cert.title || "Certificate", cert.href);
+          });
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "cert-btn";
+          btn.innerHTML = `<span class="icon" data-lucide="file-badge" style="width:14px;height:14px;"></span> View Certificate`;
+          btn.addEventListener("click", () => openCertModal(cert.title || "Certificate", cert.href));
+          li.appendChild(a);
+          li.appendChild(btn);
+        } else {
+          li.innerHTML = `<a href="${cert.href}" target="_blank" rel="noreferrer">${cert.text || ""}</a>`;
+        }
       } else {
         li.innerHTML = `<span>${typeof cert === "string" ? cert : ""}</span>`;
       }
