@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <title>Seyyed Javad Bozorg Zadeh Razavi – Personal Website</title>
-  <meta content="LLM/NLP researcher and software engineer – publications, projects, teaching, and contact"
+  <meta content="AI, NLP & LLM Engineer and Researcher – publications, projects, experience, teaching, and contact"
     name="description" />
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #ffffff;
@@ -35,17 +34,17 @@
     }
 
     * {
-      box-sizing: border-box
+      box-sizing: border-box;
     }
 
     html {
-      scroll-behavior: smooth
+      scroll-behavior: smooth;
     }
 
     html,
     body {
       margin: 0;
-      padding: 0
+      padding: 0;
     }
 
     body {
@@ -58,7 +57,7 @@
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 20px
+      padding: 0 20px;
     }
 
     .site-header {
@@ -80,7 +79,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px
+      gap: 16px;
     }
 
     .brand {
@@ -91,18 +90,21 @@
       text-decoration: none;
       color: var(--fg);
       transition: color 0.3s ease;
+      white-space: nowrap;
     }
 
     .links {
       display: flex;
-      gap: 4px;
+      gap: 2px;
+      flex-wrap: wrap;
     }
 
     .links a {
-      padding: 8px 12px;
+      padding: 8px 10px;
       color: var(--fg);
       text-decoration: none;
       border-radius: 8px;
+      font-size: 14px;
       transition: all 0.2s ease;
     }
 
@@ -126,6 +128,7 @@
       border-radius: 12px;
       transition: all 0.2s ease;
       background: var(--card-bg);
+      color: var(--fg);
       cursor: pointer;
     }
 
@@ -149,7 +152,7 @@
 
     .hero-content {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 48px;
       align-items: center;
     }
@@ -199,8 +202,8 @@
     }
 
     .hero h1 {
-      font-size: 48px;
-      line-height: 1.1;
+      font-size: 46px;
+      line-height: 1.12;
       margin: 0 0 12px;
       background: linear-gradient(135deg, var(--fg) 0%, var(--accent) 100%);
       -webkit-background-clip: text;
@@ -211,7 +214,7 @@
     .hero .subtitle {
       font-size: 20px;
       color: var(--muted);
-      margin: 8px 0 20px;
+      margin: 8px 0 16px;
       font-weight: 500;
     }
 
@@ -237,7 +240,7 @@
     }
 
     .badge:hover {
-      transform: translateY(-2px) scale(1.05);
+      transform: translateY(-2px) scale(1.03);
       border-color: var(--accent);
       box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
     }
@@ -261,6 +264,7 @@
       border: 1px solid var(--fg);
       transition: all 0.3s ease;
       font-weight: 500;
+      font-size: 14px;
     }
 
     .btn:hover {
@@ -291,7 +295,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
     }
 
@@ -342,7 +346,7 @@
       gap: 10px;
       font-weight: 600;
       font-size: 22px;
-      margin-bottom: 16px
+      margin-bottom: 16px;
     }
 
     .section-head {
@@ -363,7 +367,7 @@
     .filter label {
       font-size: 12px;
       color: var(--muted);
-      margin-right: 6px
+      margin-right: 4px;
     }
 
     .filter select,
@@ -404,38 +408,23 @@
       pointer-events: none;
     }
 
-    /* About section with image */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 32px;
-      align-items: start;
-    }
-
-    .about-photo {
-      width: 100%;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    }
-
     .grid {
       display: grid;
-      gap: 16px
+      gap: 16px;
     }
 
     .grid.two {
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
     .grid.three {
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 
     #pubGrid {
       display: flex;
       flex-direction: column;
-      gap: 16px
+      gap: 16px;
     }
 
     .card {
@@ -470,29 +459,56 @@
       transform: scaleX(1);
     }
 
+    .card-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .card-title {
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .status-pill {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--accent);
+    }
+
+    .status-pill.published {
+      color: var(--ring);
+      border-color: rgba(16, 185, 129, 0.35);
     }
 
     .meta {
       color: var(--muted);
       font-size: 14px;
-      margin: 6px 0 8px
+      margin: 6px 0 8px;
+      line-height: 1.5;
     }
 
     .card .description {
       margin: 10px 0 12px;
       color: var(--fg);
       line-height: 1.6;
+      font-size: 14.5px;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin: 10px 0
+      margin: 10px 0;
     }
 
     .tag {
@@ -543,14 +559,18 @@
 
     .timeline-item {
       position: relative;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
     }
 
     .timeline-item::before {
       content: '';
       position: absolute;
       left: -34px;
-      top: 8px;
+      top: 14px;
       width: 12px;
       height: 12px;
       border-radius: 50%;
@@ -559,18 +579,18 @@
       box-shadow: 0 0 0 4px var(--surface);
     }
 
-    /* Skills with proficiency */
+    /* Skills */
     .skills-grid {
       display: grid;
       gap: 16px;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 
     .skill-group {
       border: 1px solid var(--border);
       background: var(--card-bg);
       border-radius: 16px;
-      padding: 16px;
+      padding: 18px;
       transition: all 0.3s ease;
     }
 
@@ -582,12 +602,13 @@
 
     .skill-group .group-title {
       font-weight: 700;
-      opacity: .9;
+      opacity: .95;
       margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 8px;
       color: var(--accent);
+      font-size: 15px;
     }
 
     .skill-group .tags {
@@ -602,7 +623,7 @@
     .list {
       list-style: none;
       margin: 0;
-      padding: 0
+      padding: 0;
     }
 
     .list li {
@@ -612,6 +633,7 @@
       padding: 12px 0;
       border-bottom: 1px dashed var(--border);
       transition: all 0.2s ease;
+      gap: 12px;
     }
 
     .list li:hover {
@@ -626,7 +648,7 @@
     #certList,
     #honorsList {
       direction: ltr;
-      text-align: left
+      text-align: left;
     }
 
     #certList li,
@@ -634,7 +656,7 @@
       align-items: flex-start;
       padding: 12px 0;
       justify-content: flex-start;
-      gap: 12px
+      gap: 12px;
     }
 
     #certList li::before,
@@ -646,7 +668,7 @@
       border-radius: 50%;
       background: var(--accent);
       margin-top: 8px;
-      flex-shrink: 0
+      flex-shrink: 0;
     }
 
     #certList a {
@@ -659,12 +681,12 @@
 
     #certList a:hover {
       text-decoration: underline;
-      color: var(--accent)
+      color: var(--accent);
     }
 
     #honorsList span {
       line-height: 1.5;
-      flex: 1
+      flex: 1;
     }
 
     #elsewhere li {
@@ -672,22 +694,22 @@
       align-items: center;
       justify-content: space-between;
       padding: 12px 0;
-      border-bottom: 1px dashed var(--border)
+      border-bottom: 1px dashed var(--border);
     }
 
     #elsewhere li:last-child {
-      border-bottom: none
+      border-bottom: none;
     }
 
     #elsewhere li span:first-child {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-weight: 500
+      font-weight: 500;
     }
 
     #elsewhere li span:last-child {
-      text-align: right
+      text-align: right;
     }
 
     #elsewhere .inline {
@@ -699,7 +721,7 @@
 
     #elsewhere .inline:hover {
       text-decoration: underline;
-      color: var(--accent)
+      color: var(--accent);
     }
 
     .site-footer {
@@ -713,12 +735,12 @@
       align-items: center;
       justify-content: space-between;
       color: var(--muted);
-      font-size: 14px
+      font-size: 14px;
     }
 
     .icon {
       width: 18px;
-      height: 18px
+      height: 18px;
     }
 
     .orb {
@@ -731,27 +753,75 @@
       animation: orbMove 20s ease-in-out infinite;
     }
 
+    /* Education list styling */
+    .edu-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .edu-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card-bg);
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      transition: all .3s ease;
+    }
+
+    .edu-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border-color: var(--accent);
+    }
+
+    .edu-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .edu-item .degree {
+      font-weight: 600;
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .edu-item .school {
+      color: var(--muted);
+      font-size: 14.5px;
+    }
+
+    .edu-item .extra {
+      margin-top: 8px;
+      color: var(--fg);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
     @keyframes fadeInLeft {
       from {
         opacity: 0;
-        transform: translateX(-30px)
+        transform: translateX(-30px);
       }
 
       to {
         opacity: 1;
-        transform: translateX(0)
+        transform: translateX(0);
       }
     }
 
     @keyframes fadeInRight {
       from {
         opacity: 0;
-        transform: translateX(30px)
+        transform: translateX(30px);
       }
 
       to {
         opacity: 1;
-        transform: translateX(0)
+        transform: translateX(0);
       }
     }
 
@@ -760,12 +830,12 @@
       0%,
       100% {
         transform: scale(1);
-        opacity: 0.1
+        opacity: 0.1;
       }
 
       50% {
         transform: scale(1.05);
-        opacity: 0.15
+        opacity: 0.15;
       }
     }
 
@@ -773,17 +843,34 @@
 
       0%,
       100% {
-        transform: translate(0, 0)
+        transform: translate(0, 0);
       }
 
       50% {
-        transform: translate(20px, 30px)
+        transform: translate(20px, 30px);
       }
     }
 
-    @media (max-width:860px) {
+    section {
+      scroll-margin-top: 84px;
+    }
+
+    .card-title,
+    .description,
+    .meta {
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    img,
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 920px) {
       .links {
-        display: none
+        display: none;
       }
 
       .hero-content {
@@ -811,32 +898,22 @@
       .badges {
         justify-content: center;
       }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .about-photo {
-        max-width: 300px;
-        margin: 0 auto;
-      }
     }
 
-    @media (max-width:600px) {
+    @media (max-width: 600px) {
       .hero h1 {
-        font-size: 32px
+        font-size: 32px;
       }
 
       .list li,
       #elsewhere li {
         flex-direction: column;
         align-items: flex-start;
-        gap: 8px
+        gap: 6px;
       }
 
       #elsewhere li span:last-child {
-        text-align: left
+        text-align: left;
       }
 
       .section-head {
@@ -852,86 +929,19 @@
         width: 200px;
         height: 200px;
       }
-    }
-
-    /* --- Mobile/responsive fixes & accessibility --- */
-    section {
-      scroll-margin-top: 84px;
-    }
-
-    /* prevent sticky header covering anchors */
-    .card-title,
-    .description,
-    .meta {
-      overflow-wrap: anywhere;
-      word-break: break-word;
-    }
-
-    img,
-    svg {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .grid.two {
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))
-    }
-
-    /* reduce min width for small screens */
-    @media (max-width:600px) {
-      .about-photo {
-        width: 100%
-      }
 
       .card {
-        padding: 16px
+        padding: 16px;
       }
 
       .badge {
         font-size: 12px;
-        padding: 5px 10px
+        padding: 5px 10px;
       }
 
       .stat-number {
-        font-size: 28px
+        font-size: 28px;
       }
-    }
-
-    /* Education list styling */
-    .edu-list {
-      list-style: none;
-      margin: 0;
-      padding: 0
-    }
-
-    .edu-item {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: var(--card-bg);
-      padding: 16px;
-      margin-bottom: 12px;
-      transition: all .3s ease
-    }
-
-    .edu-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      border-color: var(--accent)
-    }
-
-    .edu-item .degree {
-      font-weight: 600;
-      margin-bottom: 4px
-    }
-
-    .edu-item .school {
-      color: var(--muted)
-    }
-
-    .edu-item .extra {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 14px
     }
   </style>
   <script defer="" src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.js"></script>
@@ -941,13 +951,16 @@
   <div class="orb"></div>
   <header class="site-header">
     <nav class="container nav">
-      <a class="brand" href="#home"><span id="name">SJB Razavi</span></a>
+      <a class="brand" href="#home"><span id="name">S.J.B. Razavi</span></a>
       <div class="links">
         <a href="#about">About</a>
+        <a href="#education">Education</a>
         <a href="#publications">Publications</a>
-        <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#teaching">Teaching</a>
         <a href="#skills">Skills</a>
+        <a href="#honors">Honors</a>
         <a href="#contact">Contact</a>
       </div>
       <div style="display:flex;align-items:center;gap:6px;">
@@ -958,19 +971,25 @@
       </div>
     </nav>
   </header>
+
   <main>
+    <!-- HERO -->
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-content">
           <div class="hero-text">
             <h1>Seyyed Javad<br />Bozorg Zadeh Razavi</h1>
-            <p class="subtitle">LLM/NLP Researcher &amp; Software Engineer</p>
-            <p style="color:var(--muted);line-height:1.6;margin:16px 0;">Designing systems that make AI more reliable,
-              fair, and useful—with focus on expert recommendation, question routing, and multilingual NLP.</p>
+            <p class="subtitle">AI, NLP &amp; LLM Engineer &amp; Researcher</p>
+            <p style="color:var(--muted);line-height:1.6;margin:16px 0;">
+              Architecting reliable, privacy-aware, and fact-controlled AI systems—specializing in Large Language Models
+              (LLMs), Retrieval-Augmented Generation (RAG), Question Routing, Crowdsourcing, and Federated Learning.
+            </p>
             <div class="badges" id="badges"></div>
             <div class="cta">
               <a class="btn" href="#publications">See publications <span class="icon"
                   data-lucide="arrow-up-right"></span></a>
+              <a class="btn outline" href="./CV-%20Javad%20Razavi.pdf" target="_blank" rel="noreferrer">Download CV
+                <span class="icon" data-lucide="file-text"></span></a>
               <a class="btn outline" href="#contact">Get in touch <span class="icon" data-lucide="mail"></span></a>
             </div>
           </div>
@@ -983,20 +1002,22 @@
         </div>
       </div>
     </section>
+
+    <!-- STATS -->
     <section class="stats-section">
       <div class="container">
         <div class="stats">
           <div class="stat-card">
-            <span class="stat-number" data-count="4">0</span>
-            <span class="stat-label">Publications</span>
+            <span class="stat-number" data-count="7">0</span>
+            <span class="stat-label">Publications &amp; Preprints</span>
           </div>
           <div class="stat-card">
-            <span class="stat-number" data-count="7">0</span>
+            <span class="stat-number" data-count="7" data-suffix="+">0</span>
             <span class="stat-label">Years Experience</span>
           </div>
           <div class="stat-card">
-            <span class="stat-number" data-count="11">0</span>
-            <span class="stat-label">Certificates</span>
+            <span class="stat-number" data-count="13">0</span>
+            <span class="stat-label">Honors &amp; Academic Service</span>
           </div>
           <div class="stat-card">
             <span class="stat-number" data-count="10">0</span>
@@ -1005,22 +1026,31 @@
         </div>
       </div>
     </section>
+
+    <!-- ABOUT -->
     <section class="section" id="about">
       <div class="container">
         <div class="title"><span class="icon" data-lucide="user"></span>About Me</div>
-        <p id="aboutText" style="max-width:800px;line-height:1.7;color:var(--muted);"></p>
-        <p style="max-width:800px;line-height:1.7;margin-top:16px;">I'm passionate about building AI systems that
-          understand context, respect diversity, and deliver fair outcomes. My research bridges theoretical frameworks
-          with practical implementations, focusing on crowdsourcing platforms, expert matching algorithms, and large
-          language models for recommendation systems.</p>
+        <p id="aboutText" style="max-width:850px;line-height:1.75;color:var(--muted);"></p>
+        <p style="max-width:850px;line-height:1.75;margin-top:14px;">
+          In industry, I architect enterprise-grade LLM and Retrieval-Augmented Generation (RAG) pipelines, including
+          multilingual conversational business intelligence (Text-to-SQL) assistants, autonomous voice/avatar customer
+          service agents, and domain-specific diagnostic systems. In academia, my research spans decentralized RAG over
+          federated learning platforms, multimodal clinical report generation, collaborative multi-LLM reasoning, and
+          clarity- and fairness-aware expert recommendation in crowdsourcing systems.
+        </p>
       </div>
     </section>
+
+    <!-- EDUCATION -->
     <section class="section" id="education">
       <div class="container">
         <div class="title"><span class="icon" data-lucide="graduation-cap"></span>Education</div>
         <ul class="edu-list" id="eduList"></ul>
       </div>
     </section>
+
+    <!-- PUBLICATIONS -->
     <section class="section" id="publications">
       <div class="container">
         <div class="section-head">
@@ -1031,24 +1061,36 @@
               <input class="search-input" id="pubSearch" placeholder="Search publications..." type="text" />
             </div>
             <div class="filter">
-              <label>Year</label>
+              <label for="yearFilter">Filter</label>
               <select id="yearFilter"></select>
             </div>
           </div>
         </div>
-        <div class="grid two" id="pubGrid"></div>
+        <div id="pubGrid"></div>
       </div>
     </section>
+
+    <!-- WORK EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="title"><span class="icon" data-lucide="briefcase"></span>Work Experience</div>
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+    <!-- SELECTED PROJECTS -->
     <section class="section" id="projects">
       <div class="container">
         <div class="title"><span class="icon" data-lucide="code-2"></span>Selected Projects</div>
         <div class="grid two" id="projGrid"></div>
       </div>
     </section>
+
+    <!-- TEACHING EXPERIENCE -->
     <section class="section" id="teaching">
       <div class="container grid two">
         <div>
-          <div class="title"><span class="icon" data-lucide="graduation-cap"></span>Lecturer</div>
+          <div class="title"><span class="icon" data-lucide="presentation"></span>Lecturer</div>
           <ul class="list" id="lecturerList"></ul>
         </div>
         <div>
@@ -1057,136 +1099,404 @@
         </div>
       </div>
     </section>
-    <section class="section" id="experience">
-      <div class="container">
-        <div class="title"><span class="icon" data-lucide="briefcase"></span>Experience</div>
-        <div class="timeline" id="timeline"></div>
-      </div>
-    </section>
+
+    <!-- SKILLS & LANGUAGES -->
     <section class="section" id="skills">
       <div class="container">
-        <div class="title"><span class="icon" data-lucide="wrench"></span>Skills</div>
+        <div class="title"><span class="icon" data-lucide="wrench"></span>Skills &amp; Languages</div>
         <div class="skills-grid" id="skillsWrap"></div>
       </div>
     </section>
+
+    <!-- HONORS, AWARDS & ACADEMIC SERVICE -->
     <section class="section" id="honors">
       <div class="container">
-        <div class="title"><span class="icon" data-lucide="trophy"></span>Honors &amp; Awards</div>
+        <div class="title"><span class="icon" data-lucide="trophy"></span>Honors, Awards &amp; Academic Service</div>
         <ul class="list" id="honorsList"></ul>
       </div>
     </section>
+
+    <!-- CERTIFICATES -->
     <section class="section" id="certificates">
       <div class="container">
-        <div class="title"><span class="icon" data-lucide="award"></span>Certificates</div>
+        <div class="title"><span class="icon" data-lucide="award"></span>Certificates &amp; Accomplishments</div>
         <ul class="list" id="certList"></ul>
       </div>
     </section>
+
+    <!-- REFERENCES -->
+    <section class="section" id="references">
+      <div class="container">
+        <div class="title"><span class="icon" data-lucide="user-check"></span>References</div>
+        <div class="grid three" id="refGrid"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="container grid two">
         <div class="card">
           <div class="card-title">Get in Touch</div>
-          <p style="color:var(--muted);margin:12px 0;">I'm always open to discussing research collaborations, new
-            projects, or opportunities in NLP and machine learning.</p>
+          <p style="color:var(--muted);margin:12px 0;line-height:1.6;">
+            I'm always open to discussing research collaborations, PhD/academic opportunities, or engineering projects
+            in Large Language Models, RAG, NLP, and Federated Learning.
+          </p>
           <ul class="list" id="elsewhere" style="margin-top:20px;"></ul>
         </div>
       </div>
     </section>
   </main>
+
   <footer class="site-footer">
     <div class="container foot">
       <span id="copyright"></span>
       <a id="curSiteFooter" rel="noreferrer" target="_blank"><span class="icon" data-lucide="arrow-up-right"></span></a>
     </div>
   </footer>
+
   <script>
-    // --- Content (from CV) ---
+    // --- Content (Synchronized with CV PDF & LaTeX) ---
     const DATA = {
-      certificates: [
-        { text: "Federated Fine-tuning of LLMs with Private Data – <span style='color: #4f46e5;'>DeepLearning.AI</span>", href: "https://learn.deeplearning.ai/accomplishments/e61514c5-9051-493f-90af-8c0b65088d1a?usp=sharing" },
-        { text: "Intro to Federated Learning – <span style='color: #4f46e5;'>DeepLearning.AI</span>", href: "https://learn.deeplearning.ai/accomplishments/6823dea6-3f7f-41b8-a21a-da13de277243?usp=sharing" },
-        { text: "Efficiently Serving LLMs – <span style='color: #4f46e5;'>DeepLearning.AI</span>", href: "https://learn.deeplearning.ai/accomplishments/63f21148-9840-408b-ad23-905b2b1002d8?usp=sharing" },
-        { text: "Hands-On Natural Language Processing – <span style='color: #4f46e5;'>National Association of State Boards of Accountancy (NASBA)</span>", href: "./nlp_certificate.pdf" },
-        { text: "Python Data Structures – <span style='color: #4f46e5;'>Coursera</span>", href: "https://www.coursera.org/account/accomplishments/verify/M76L3RKAH6US" },
-        { text: "Programming for Everybody (Getting Started with Python) – <span style='color: #4f46e5;'>Coursera</span>", href: "https://coursera.org/share/88c5c33ea1952d69ab6282212a8ac922" },
-        { text: "Performance optimization and final build file size reduction in Unity3D – <span style='color: #4f46e5;'>Iran Computer and Video Games Foundation</span>", href: "https://en.ircg.ir/" },
-        { text: "Basic and Advanced Java – <span style='color: #4f46e5;'>Fani Va Herfeii</span>", href: "https://international.irantvto.ir/" },
-        { text: "Basic and Advanced C# Programming – <span style='color: #4f46e5;'>Center for Information Technology and Digital Media Development</span>", href: "https://international.irantvto.ir/" }
-      ],
-      honors: [
-        "Reviewer of the 14th International Conference on Computer and Knowledge Engineering (ICCKE)",
-        "Received two BSc degrees simultaneously (Restricted to talented students)",
-        "First rank among BSc degree students in computer architecture engineering",
-        "Among the top 15% of BSc students, software engineering degree",
-        "Head of the Scientific Association of Computer Science, University of Birjand (2018–2020)",
-        "Judge of the Birjand University Annual ACM/ICPC (Sep 2018 – Sep 2020)",
-        "Lecturer of two C# programming courses at the Fani Va Herfeii organization",
-        "Main committee member for the 1st Conference of Healthcare Computing Systems and Technologies (2019)",
-        "Participated at the ICCKE conference 2023, 2024, and 2025"
-      ],
-      siteUrl: "https://bozorgzade.ir/",
-      about: "Researcher focused on large language models, crowdsourcing, expert recommendation, and question routing. I care about clarity and fairness in human–AI systems and build practical ML/NLP solutions.",
+      siteUrl: "https://www.bozorgzade.ir",
+      about: "AI, Natural Language Processing, and LLM Engineer & Researcher with an M.Sc. in Computer Engineering (GPA: 4.00/4.00) from Ferdowsi University of Mashhad and dual B.Sc. degrees in Computer Systems Architecture and Software Engineering from the University of Birjand.",
       location: "Mashhad, Iran",
-      email: "mailto:javad.b.razavi@gmail.com",
-      photoUrl: "your-photo.jpg", // Replace with your actual photo path
+      email: "mailto:Javad.b.razavi@gmail.com",
       socials: [
-        { label: "GoogleScholar", href: "https://scholar.google.com/citations?user=8sQuGQoAAAAJ&hl=en", icon: "graduation-cap" },
         { label: "LinkedIn", href: "https://www.linkedin.com/in/b-razavi/", icon: "linkedin" },
+        { label: "Google Scholar", href: "https://scholar.google.com/citations?user=8sQuGQoAAAAJ&hl=en", icon: "graduation-cap" },
         { label: "GitHub", href: "https://github.com/seyyedjavadrazavi", icon: "github" },
+        { label: "Email", href: "mailto:Javad.b.razavi@gmail.com", icon: "mail" }
+      ],
+
+      badges: [
+        "Large Language Models (LLMs)",
+        "Retrieval-Augmented Generation (RAG)",
+        "Natural Language Processing",
+        "Question Routing",
+        "Social Computing",
+        "Crowdsourcing",
+        "Federated Learning"
       ],
 
       education: [
-        { degree: "Master of Computer Engineering", school: "Ferdowsi University of Mashhad — Department of Computer Engineering", gpa: "4.0", dates: "July 2019 – September 2022", thesis: "Novel Worker Recruitment Method Based on Clarity and Fairness of Requester", thesis_score: "19/20" },
-        { degree: "Bachelor of Software Engineering", school: "University of Birjand — Department of Electrical and Computer Engineering", gpa: "3.41", dates: "September 2015 – September 2019" },
-        { degree: "Bachelor of Computer Systems Architecture", school: "University of Birjand — Department of Electrical and Computer Engineering", gpa: "3.50", dates: "September 2015 – September 2019" }
+        {
+          degree: "M.Sc. in Computer Engineering",
+          school: "Ferdowsi University of Mashhad, Department of Computer Engineering",
+          gpa: "4.00 / 4.00",
+          dates: "Jul. 20, 2019 – Sep. 21, 2022",
+          thesis: "Novel Worker Recruitment Method Based on Clarity and Fairness of Requester",
+          thesis_score: "19/20"
+        },
+        {
+          degree: "B.Sc. in Computer Systems Architecture",
+          school: "University of Birjand, Department of Electrical and Computer Engineering",
+          gpa: "3.50 / 4.00",
+          dates: "Sep. 23, 2015 – Sep. 20, 2019"
+        },
+        {
+          degree: "B.Sc. in Software Engineering",
+          school: "University of Birjand, Department of Electrical and Computer Engineering",
+          gpa: "3.41 / 4.00",
+          dates: "Sep. 23, 2015 – Sep. 20, 2019"
+        }
       ],
-      badges: ["Large Language Models", "Question Routing", "Expert Recommendation", "Crowdsourcing", "Multilingual NLP", "Federated Learning"],
+
       publications: [
-        { title: "Collaborative LLM Reasoning for Vulnerability Detection in Smart Contracts", venue: "15th International Conference on Computer and Knowledge Engineering (ICCKE)", year: 2025, authors: ["A. Samari", "P. Hedayatnia", "SJ. Bozorg Zadeh Razavi", "M. Allahbakhsh", "H. Amintoosi"], description: "Smart contracts often contain subtle bugs that traditional tools miss. While single LLMs can detect vulnerabilities, they are inconsistent and prompt-sensitive. Our collaborative framework combines ChatGPT, Gemini, and Grok with semantic few-shot prompting and a justification-based aggregator. On the SmartBugs benchmark, it achieves 96.25% accuracy with faster responses, providing a robust, scalable, and explainable auditing solution.", tags: ["Smart Contract Security", "Vulnerability Detection", "Large Language Models (LLMs)", "Collaborative LLM Reasoning", "Blockchain"], links: [{ href: "https://ieeexplore.ieee.org/abstract/document/11273846/keywords#keywords", text: "Publisher" }, { href: "https://doi.org/10.1109/ICCKE68588.2025.11273846", text: "DOI" }] },
-        { title: "A Clarity and Fairness Aware Framework for Expert Recommendation in Crowdsourcing Systems", venue: "Computing (Springer)", year: 2024, authors: ["SJ. Bozorg Zadeh Razavi", "H. Amintoosi", "M. Allahbakhsh"], description: "Framework that evaluates requester clarity and fairness, integrating them with task and worker attributes; outperforms prior approaches on real data.", tags: ["Crowdsourcing", "Expert Recommendation", "Clarity", "Fairness"], links: [{ href: "https://link.springer.com/article/10.1007/s00607-024-01316-8", text: "Publisher" }, { href: "https://doi.org/10.1007/s00607-024-01316-8", text: "DOI" }] },
-        { title: "SecVanet: Provably secure authentication protocol for sending emergency events in VANET", venue: "International Conference on Information and Knowledge Technology (IKT)", year: 2023, authors: ["A. Mousavi", "M.S. Sirjani", "S.J. Bozorg Zadeh Razavi", "M. Nikooghadam"], description: "Secure authentication for emergency vehicle communications in VANETs; prevents malicious signals and ensures reliable responses.", tags: ["Authentication", "VANET", "Security"], links: [{ href: "https://ieeexplore.ieee.org/abstract/document/10433027/", text: "Publisher" }, { href: "https://doi.org/10.1109/IKT62039.2023.10433027", text: "DOI" }] },
-        { title: "A Framework for Assessing the Clarity of Contributions in the Q&A System", venue: "Computer Society of Iran Conference (in Persian)", year: 2022, authors: ["S.J. Bozorg Zadeh Razavi", "H. Amintoosi", "M. Allahbakhsh"], description: "Computes clarity of requester task explanations in Q&A/crowdsourcing settings.", tags: ["Clarity", "Crowdsourcing"], links: [{ href: "https://civilica.com/doc/1452936/", text: "Publisher" }, { href: "https://civilica.com/doc/1452936/", text: "DOI" }] }
+        {
+          title: "Fed-AdaptRAG: A Training-Free Adaptive Cascade Framework for Decentralized Retrieval-Augmented Generation",
+          venue: "Manuscript in Preparation",
+          year: "In Prep.",
+          status: "Manuscript in Preparation",
+          authors: ["B. Razavi, S.J.", "Sohani, S.", "Zhang, K."],
+          description: "This study investigates the integration of Retrieval-Augmented Generation (RAG) systems within federated learning platforms, focusing on mechanisms that enable the RAG pipeline to dynamically enhance its decentralized knowledge base and retrieval processes based on incoming user queries.",
+          tags: ["Retrieval-Augmented Generation (RAG)", "Federated Learning", "Decentralized RAG", "Adaptive Cascade"],
+          links: []
+        },
+        {
+          title: "Large Language Models as Expert Recommender Engines in Crowdsourcing Platforms",
+          venue: "Manuscript in Preparation",
+          year: "In Prep.",
+          status: "Manuscript in Preparation",
+          authors: ["B. Razavi, S.J.", "Amintoosi, H.", "Allahbakhsh, M."],
+          description: "This article explores the application of Large Language Models (LLMs) as intelligent recommender engines to evaluate and rank workers on crowdsourcing platforms. By jointly analyzing applicants' historical data—such as past task completions and expertise indicators—alongside task metadata (title, description, and category), the proposed approach improves task allocation efficiency, accuracy, and scalability.",
+          tags: ["Large Language Models (LLMs)", "Expert Recommendation", "Crowdsourcing", "Task Allocation"],
+          links: []
+        },
+        {
+          title: "Grounded Clinical Reasoning with Multimodal LLMs: Bridging Deep Lesion Segmentation and Fact-Controlled Brain MRI Report Generation",
+          venue: "Manuscript in Preparation",
+          year: "In Prep.",
+          status: "Manuscript in Preparation",
+          authors: ["B. Razavi, S.J.", "Vatanparast, A.", "Allahbakhsh, M.", "Amintoosi, H.", "Mashayekhi, H."],
+          description: "This framework transforms 2D brain MRI scans into structured diagnostic reports by coupling upstream PEFNet segmentation with the MedGemma-27B multimodal large language model. While non-generative report sections (Technique, Impression, and Limitations) are assembled deterministically to prevent diagnostic hallucinations, MedGemma-27B processes the MRI scan overlaid with a thin lesion boundary alongside curated geometric and signal facts to synthesize a clinically fluent Findings narrative under strict factual control.",
+          tags: ["Multimodal LLMs", "Medical Imaging", "Brain MRI", "Fact-Controlled Generation", "MedGemma-27B"],
+          links: []
+        },
+        {
+          title: "Collaborative LLM-Based Vulnerability Detection for Smart Contract",
+          venue: "ICCKE Conference",
+          year: "2025",
+          status: "Published, IEEE Index",
+          authors: ["Samari, S.", "Hedayatnia, P.", "B. Razavi, S.J.", "Allahbakhsh, M.", "Amintoosi, H."],
+          description: "This paper introduces a collaborative LLM-based framework that enhances vulnerability detection robustness in smart contracts through semantic similarity-based few-shot prompting and multi-LLM reasoning. The architecture integrates diverse LLMs as worker nodes alongside an aggregator model to resolve disagreements via justification analysis and final prediction consolidation.",
+          tags: ["Smart Contract Security", "Vulnerability Detection", "Multi-LLM Reasoning", "Few-Shot Prompting"],
+          links: [
+            { href: "https://ieeexplore.ieee.org/abstract/document/11273846/keywords#keywords", text: "Publisher" },
+            { href: "https://doi.org/10.1109/ICCKE68588.2025.11273846", text: "DOI" }
+          ]
+        },
+        {
+          title: "A Clarity and Fairness Aware Framework for Expert Recommendation in Crowdsourcing Systems",
+          venue: "Springer Computing Journal",
+          year: "2024",
+          status: "Published",
+          authors: ["B. Razavi, S.J.", "Amintoosi, H.", "Allahbakhsh, M."],
+          description: "This article proposes a framework for selecting suitable workers in crowdsourcing by modeling requester clarity and fairness. It employs a fuzzy inference model to evaluate task clarity and integrates these metrics with task and worker attributes, outperforming existing baseline approaches on real-world datasets.",
+          tags: ["Crowdsourcing", "Expert Recommendation", "Clarity & Fairness", "Fuzzy Inference"],
+          links: [
+            { href: "https://link.springer.com/article/10.1007/s00607-024-01316-8", text: "Publisher" },
+            { href: "https://doi.org/10.1007/s00607-024-01316-8", text: "DOI" }
+          ]
+        },
+        {
+          title: "SecVanet: Provably Secure Authentication Protocol for Sending Emergency Events in VANET",
+          venue: "IKT Conference",
+          year: "2023",
+          status: "Published, IEEE Index",
+          authors: ["Mousavi, A.", "Sirjani, M. Sadegh", "B. Razavi, S.J."],
+          description: "This paper presents a provably secure authentication protocol for vehicular ad hoc networks (VANETs), ensuring reliable communication between emergency and damaged vehicles. The protocol prevents malicious spoofing attacks and false emergency signals, guaranteeing that only legitimate, authenticated messages are transmitted to enable timely emergency response routing.",
+          tags: ["VANET", "Authentication Protocol", "Network Security"],
+          links: [
+            { href: "https://ieeexplore.ieee.org/abstract/document/10433027/", text: "Publisher" },
+            { href: "https://doi.org/10.1109/IKT62039.2023.10433027", text: "DOI" }
+          ]
+        },
+        {
+          title: "A Framework for Assessing the Clarity of Contributions in the Q&A System",
+          venue: "Computer Society of Iran Conference",
+          year: "2022",
+          status: "Published, In Persian – ISC Index",
+          authors: ["B. Razavi, S.J.", "Amintoosi, H.", "Allahbakhsh, M."],
+          description: "Clear task descriptions are essential in crowdsourcing and Q&A platforms, as ambiguity leads to unsatisfactory worker submissions. In this article, we propose an automated framework that quantifies the clarity of a requester's task description prior to publication.",
+          tags: ["Q&A Systems", "Crowdsourcing", "Task Clarity"],
+          links: [
+            { href: "https://civilica.com/doc/1452936/", text: "Publisher" }
+          ]
+        }
       ],
-      projects: [
-        { title: "Sahim Application", blurb: "Platform for building management: contracts, charges, rent payments, resident messaging; includes an LLM assistant for building/home appliance questions.", tags: ["LLM", "Backend", "Product"], href: "#" },
-        { title: "Online Shopping Application", blurb: "Integrated social, marketplace, ride-hailing, and messaging capabilities.", tags: ["Backend", "Realtime", "Microservices"], href: "#" }
-      ],
-      lecturer: [
-        { title: "C# Programming for Beginners", date: "Jan 2017 – Jun 2017" },
-        { title: "Advanced C# Programming", date: "Jan 2018 – Jun 2018" }
-      ],
-      ta: [
-        { title: "Compiler", date: "Jan 2023 – Jun 2023" },
-        { title: "Principles of Software Design", date: "Sep 2022 – Dec 2022" },
-        { title: "Web Programming", date: "Sep 2022 – Dec 2022" },
-        { title: "Introduction to Python Programming", date: "Jan 2021 – Jun 2021" },
-        { title: "Introduction to C++ Programming", date: "Jan 2018 – Jun 2018" },
-        { title: 'Engineering Probability and Statistics <br> (4 semesters / 5 classes)', date: "Jan 2017 – Jan 2019" },
-        { title: "An Introduction to Formal Languages <br>and Automata", date: "Sep 2017 – Dec 2017" },
-        { title: "Data Structures and Algorithms", date: "Jan 2017 – Jun 2017" }
-      ],
+
       experience: [
-        { role: "Team Lead, Machine Learning & NLP", org: "Sahim Company", date: "Mar 2023 – Present", bullets: ["Leading development of an LLM for question answering about home appliances and building issues."] },
-        { role: "Research Assistant", org: "Ferdowsi University of Mashhad", date: "Sep 2022 – Present", bullets: ["Expert Recommendation, Question Routing, LLMs for Recommendation"] }
+        {
+          role: "AI, Natural Language Processing & LLM Engineer",
+          org: "Makan System Hooshmand Company",
+          date: "May 2025 – Present",
+          bullets: [
+            "Architecting enterprise LLM and Retrieval-Augmented Generation (RAG) systems, including multilingual conversational business intelligence (Text-to-SQL) assistants and autonomous voice/avatar customer service agents."
+          ]
+        },
+        {
+          role: "Team Lead of Machine Learning and Natural Language Processing",
+          org: "Sahim Company",
+          date: "Mar. 2023 – Mar. 2025",
+          bullets: [
+            "Led the development of a domain-specific LLM question-answering system for diagnosing home appliance, electronic device, and building maintenance issues."
+          ]
+        },
+        {
+          role: "Graduate Research Assistant",
+          org: "Ferdowsi University of Mashhad",
+          date: "Sep. 2022 – Feb. 2023",
+          bullets: [
+            "Conducted research on Expert Recommendation, Question Routing, and Large Language Models for Recommender Systems."
+          ]
+        },
+        {
+          role: "Product Lead, Accounting Software Division (CEO)",
+          org: "Arvin Pishgaman Fannavari Ronak (Uper)",
+          date: "Aug. 2020 – Aug. 2021",
+          bullets: []
+        },
+        {
+          role: "Senior Back-End Developer",
+          org: "Arvin Pishgaman Fannavari Ronak (Uper)",
+          date: "Jun. 2019 – Aug. 2020",
+          bullets: [
+            "Architected software and database systems scaling to 1M+ users",
+            "Implemented core marketplace services using .NET 5",
+            "Engineered real-time communication pipelines over NATS & SignalR"
+          ]
+        }
       ],
+
+      projects: [
+        {
+          title: "Natural Language BI Assistant",
+          blurb: "Architected a multilingual conversational business intelligence (Text-to-SQL) platform enabling non-technical managers and C-suite executives to extract insights from complex relational databases across English, Persian, Armenian, Turkish, and Arabic using LLMs, RAG, and dynamic schema linking.",
+          tags: ["LLMs", "RAG", "Text-to-SQL", "Multilingual NLP", "Dynamic Schema Linking"]
+        },
+        {
+          title: "Autonomous Avatar Assistant for Power Grid Operations",
+          blurb: "Architected a zero-human-in-the-loop conversational avatar platform integrating open-source LLMs, ASR, TTS, and RAG to automate end-to-end citizen outage reporting and real-time ticket follow-ups.",
+          tags: ["Open-Source LLMs", "RAG", "ASR & TTS", "Conversational Avatar", "Autonomous Agents"]
+        },
+        {
+          title: "Sahim Smart Building Application",
+          blurb: "Engineered a comprehensive building management platform for contracts, billing, and resident messaging, featuring an integrated domain-specific LLM assistant that answers resident queries regarding building operations and home appliance troubleshooting.",
+          tags: ["Domain-Specific LLM", "Question Answering", "Building Management", "Full-Stack"]
+        },
+        {
+          title: "Multi-Service E-Commerce & Social Super-App",
+          blurb: "Developed a full-stack mobile and web platform integrating social networking feeds, an online marketplace, ride-hailing dispatch services, and real-time instant messaging.",
+          tags: [".NET 5", "NATS & SignalR", "Microservices", "Real-Time Messaging", "1M+ Users"]
+        }
+      ],
+
+      lecturer: [
+        { title: "Advanced C# Programming", date: "Jan. 2018 – Jun. 2018" },
+        { title: "C# Programming for Beginners", date: "Jan. 2017 – Jun. 2017" }
+      ],
+
+      ta: [
+        { title: "Compiler Design", date: "Jan. 2023 – Jun. 2023" },
+        { title: "Principles of Software Design", date: "Sep. 2022 – Dec. 2022" },
+        { title: "Web Programming", date: "Sep. 2022 – Dec. 2022" },
+        { title: "Introduction to Python Programming", date: "Jan. 2021 – Jun. 2021" },
+        { title: "Introduction to C++ Programming", date: "Jan. 2018 – Jun. 2018" },
+        { title: "Engineering Probability & Statistics (4 sem., 5 classes)", date: "Jan. 2017 – Jan. 2019" },
+        { title: "Intro. to Formal Languages and Automata", date: "Sep. 2017 – Dec. 2017" },
+        { title: "Data Structures and Algorithms", date: "Jan. 2017 – Jun. 2017" }
+      ],
+
       skills: {
-        languages: ["Python", "C++", "C#", "SQL"],
-        frameworks: [".NET Core", ".NET Framework", "WPF"],
-        web: ["HTML", "CSS", "jQuery", "Bootstrap", "ASP.NET Core"],
-        databases: ["MSSQL", "PostgreSQL", "Access", "MongoDB"],
-        patterns: ["MVC", "MVP"],
-        tools: ["Git", "Project Management", "Unity", "Qt"]
+        "Programming Languages": [
+          "Python", "C++", "C#", "SQL", "JavaScript (JS)", "MATLAB"
+        ],
+        "LLMs, RAG & NLP": [
+          "Large Language Models (Text & Multimodal)",
+          "Retrieval-Augmented Generation (Adaptive & Decentralized RAG)",
+          "Embedding Models",
+          "Semantic Similarity Search",
+          "Few-Shot Prompting",
+          "Multi-LLM Reasoning",
+          "Question Answering & Routing"
+        ],
+        "ML & Federated Learning": [
+          "Federated Learning",
+          "Privacy-Preserving LLM Fine-Tuning",
+          "Efficient LLM Serving",
+          "Recommender Systems",
+          "Fuzzy Modeling",
+          "Machine Learning in Python"
+        ],
+        "Backend & Web Dev": [
+          ".NET Core / .NET 5", "ASP.NET Core", "WPF", "NATS", "SignalR", "HTML", "CSS", "Bootstrap", "jQuery"
+        ],
+        "Databases & Architecture": [
+          "PostgreSQL", "MSSQL Server", "Access", "MVC", "MVP", "Object-Oriented Programming (OOP)"
+        ],
+        "Tools & Environments": [
+          "Git", "Visual Studio", "VS Code", "Qt Creator", "Unity3D", "Android Studio", "Trello"
+        ],
+        "Languages": [
+          "Persian: Native",
+          "TOEFL iBT: 93 (Aug. 26, 2023 – R: 27, L: 23, S: 20, W: 23)",
+          "IELTS: 6.5 (Feb. 11, 2022 – R: 7, L: 6.5, S: 6.5, W: 6)"
+        ]
       },
+
+      honors: [
+        "Peer Reviewer, International Conference on Artificial Intelligence, Computer, Data Sciences and Applications (ACDSA 2027) – University of Campinas (UNICAMP), Brazil",
+        "Peer Reviewer, International Conference on Artificial Intelligence, Computer, Data Sciences and Applications (ACDSA 2026) – University of Santo Tomas, Philippines",
+        "Peer Reviewer, International Conference on Electrical, Computer and Energy Technologies (ICECET 2026) – Politecnico di Milano, Italy",
+        "Peer Reviewer, 14th International Conference on Computer and Knowledge Engineering (ICCKE) – Ferdowsi University of Mashhad",
+        "Awarded Dual B.Sc. Degrees Simultaneously in Software Engineering and Computer Systems Architecture (Restricted to top-ranked talented students)",
+        "Ranked 1st among B.Sc. students in Computer Systems Architecture Engineering, University of Birjand",
+        "Ranked in the Top 15% of B.Sc. students in Software Engineering, University of Birjand",
+        "Selected Valedictorian Speaker (one of two students chosen) at the Final University Graduation Ceremony",
+        "Judge, University of Birjand Annual ACM/ICPC Programming Competitions (2018–2020)",
+        "Head of the Scientific Association of Computer Science, University of Birjand (2018–2020)",
+        "Lead Organizer, Best Regional Programming Competitions in South Khorasan Province, Iran",
+        "Organizing Committee Member, 1st Conference on Healthcare Computing Systems and Technologies (2019)",
+        "Invited Lecturer, Two C# Programming Courses, Technical and Vocational Training Organization (Fani Va Herfeii)"
+      ],
+
+      certificates: [
+        {
+          text: "Federated Fine-Tuning of LLMs with Private Data – <span style='color: var(--accent);'>DeepLearning.AI</span>",
+          href: "https://learn.deeplearning.ai/accomplishments/e61514c5-9051-493f-90af-8c0b65088d1a?usp=sharing"
+        },
+        {
+          text: "Introduction to Federated Learning – <span style='color: var(--accent);'>DeepLearning.AI</span>",
+          href: "https://learn.deeplearning.ai/accomplishments/6823dea6-3f7f-41b8-a21a-da13de277243?usp=sharing"
+        },
+        {
+          text: "Efficiently Serving LLMs – <span style='color: var(--accent);'>DeepLearning.AI</span>",
+          href: "https://learn.deeplearning.ai/accomplishments/63f21148-9840-408b-ad23-905b2b1002d8?usp=sharing"
+        },
+        {
+          text: "Hands-On Natural Language Processing – <span style='color: var(--accent);'>National Association of State Boards of Accountancy (NASBA)</span>",
+          href: "./nlp_certificate.pdf"
+        },
+        {
+          text: "Python Data Structures – <span style='color: var(--accent);'>Coursera</span>",
+          href: "https://www.coursera.org/account/accomplishments/verify/M76L3RKAH6US"
+        },
+        {
+          text: "Programming for Everybody (Getting Started with Python) – <span style='color: var(--accent);'>Coursera</span>",
+          href: "https://coursera.org/share/88c5c33ea1952d69ab6282212a8ac922"
+        },
+        {
+          text: "Basic and Advanced C# Programming Language – <span style='color: var(--accent);'>Center for Information Technology and Digital Media Development</span>",
+          href: "https://international.irantvto.ir/"
+        },
+        {
+          text: "Performance Optimization and Build Size Reduction in Unity3D – <span style='color: var(--accent);'>Iran Computer and Video Games Foundation</span>",
+          href: "https://en.ircg.ir/"
+        },
+        {
+          text: "Basic and Advanced Java Programming Language – <span style='color: var(--accent);'>Fani Va Herfeii Organization</span>",
+          href: "https://international.irantvto.ir/"
+        }
+      ],
+
+      references: [
+        {
+          name: "Dr. Haleh Amintoosi",
+          role: "Head of E-Learning Center, Faculty of Computer Engineering",
+          org: "Ferdowsi University of Mashhad",
+          email: "amintoosi@um.ac.ir"
+        },
+        {
+          name: "Dr. Mohammad Allahbakhsh",
+          role: "Faculty of Computer Engineering",
+          org: "Ferdowsi University of Mashhad",
+          email: "allahbakhsh@ferdowsi.um.ac.ir"
+        },
+        {
+          name: "Dr. Mehran Taghipour-Gorjikolaie",
+          role: "Faculty of Electrical & Computer Engineering",
+          org: "University of Birjand",
+          email: "mtaghipour@birjand.ac.ir"
+        }
+      ],
+
       elsewhere: [
         { label: "LinkedIn", value: "linkedin.com/in/b-razavi/", href: "https://www.linkedin.com/in/b-razavi/", icon: "linkedin" },
-        { label: "Github", value: "github.com/seyyedjavadrazavi", href: "https://github.com/seyyedjavadrazavi", icon: "github" },
         { label: "Google Scholar", value: "scholar.google.com", href: "https://scholar.google.com/citations?user=8sQuGQoAAAAJ&hl=en", icon: "graduation-cap" },
-        { label: "Email", value: "javad.b.razavi@gmail.com", href: "mailto:javad.b.razavi@gmail.com", icon: "mail" },
-        { label: "Website", value: "bozorgzade.ir", href: "https://bozorgzade.ir", icon: "globe" },
-        { label: "Location", value: "Mashhad, Iran", href: "#", icon: "map-pin" }
+        { label: "GitHub", value: "github.com/seyyedjavadrazavi", href: "https://github.com/seyyedjavadrazavi", icon: "github" },
+        { label: "Email", value: "Javad.b.razavi@gmail.com", href: "mailto:Javad.b.razavi@gmail.com", icon: "mail" },
+        { label: "Website", value: "www.bozorgzade.ir", href: "https://www.bozorgzade.ir", icon: "globe" },
+        { label: "Location", value: "Mashhad, Iran", href: "#contact", icon: "map-pin" }
       ]
     };
 
-    const escapeHtml = (str) => String(str).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#39;");
+    const escapeHtml = (str) =>
+      String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
 
     // Dark mode toggle
     let isDark = false;
@@ -1199,23 +1509,24 @@
 
     // Animate counters
     function animateCounter(el) {
-      const target = parseInt(el.dataset.count);
-      const duration = 2000;
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || "";
+      const duration = 1600;
       const step = target / (duration / 16);
       let current = 0;
       const timer = setInterval(() => {
         current += step;
         if (current >= target) {
-          el.textContent = target;
+          el.textContent = target + suffix;
           clearInterval(timer);
         } else {
-          el.textContent = Math.floor(current);
+          el.textContent = Math.floor(current) + suffix;
         }
       }, 16);
     }
 
     // Intersection Observer for scroll animations
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observerOptions = { threshold: 0.08, rootMargin: '0px 0px -40px 0px' };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1226,14 +1537,13 @@
 
     document.querySelectorAll('.section').forEach(section => observer.observe(section));
 
-    // Animate stats on load
     window.addEventListener('load', () => {
       document.querySelectorAll('.stat-number').forEach(animateCounter);
     });
 
-    // Handle photo error - show placeholder
+    // Handle photo error - show fallback SVG initials
     document.getElementById('profilePhoto').onerror = function () {
-      this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="320" height="320"%3E%3Crect width="320" height="320" fill="%234f46e5"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="120" fill="white"%3ESJ%3C/text%3E%3C/svg%3E';
+      this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="320" height="320"%3E%3Crect width="320" height="320" fill="%234f46e5"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="110" fill="white"%3ESJR%3C/text%3E%3C/svg%3E';
     };
 
     // Populate basics
@@ -1243,7 +1553,12 @@
     const socials = document.getElementById("socials");
     DATA.socials.forEach(s => {
       const a = document.createElement("a");
-      a.href = s.href; a.target = "_blank"; a.rel = "noreferrer";
+      a.href = s.href;
+      a.ariaLabel = s.label;
+      if (!s.href.startsWith("mailto:")) {
+        a.target = "_blank";
+        a.rel = "noreferrer";
+      }
       a.innerHTML = `<span class="icon" data-lucide="${s.icon}"></span>`;
       socials.appendChild(a);
     });
@@ -1252,18 +1567,45 @@
     DATA.badges.forEach(b => {
       const span = document.createElement("span");
       span.className = "badge";
-      span.innerHTML = `<span class="icon" data-lucide="sparkles"></span>${b}`;
+      span.innerHTML = `<span class="icon" data-lucide="sparkles"></span>${escapeHtml(b)}`;
       badges.appendChild(span);
     });
 
     document.getElementById("aboutText").textContent = DATA.about;
 
-    // Publications with search
+    // Education
+    const eduList = document.getElementById("eduList");
+    DATA.education.forEach(e => {
+      const li = document.createElement("li");
+      li.className = "edu-item";
+      li.innerHTML = `
+        <div class="edu-head">
+          <div class="degree">${escapeHtml(e.degree)}</div>
+          <div class="meta" style="margin:0;">${escapeHtml(e.dates)}</div>
+        </div>
+        <div class="edu-head" style="margin-top:2px;">
+          <div class="school">${escapeHtml(e.school)}</div>
+          ${e.gpa ? `<div class="meta" style="margin:0;font-weight:600;color:var(--fg);">GPA: ${escapeHtml(e.gpa)}</div>` : ""}
+        </div>
+        ${e.thesis ? `<div class="extra"><i>Thesis Topic:</i> ${escapeHtml(e.thesis)}${e.thesis_score ? ` <b>(Score: ${escapeHtml(e.thesis_score)})</b>` : ""}</div>` : ""}
+      `;
+      eduList.appendChild(li);
+    });
+
+    // Publications with search & year/status filter
     const pubGrid = document.getElementById("pubGrid");
     const yearFilter = document.getElementById("yearFilter");
     const pubSearch = document.getElementById("pubSearch");
-    const years = Array.from(new Set(DATA.publications.map(p => p.year))).sort((a, b) => b - a);
-    yearFilter.innerHTML = `<option value="all">All</option>` + years.map(y => `<option value="${y}">${y}</option>`).join("");
+    const years = Array.from(new Set(DATA.publications.map(p => p.year)));
+    yearFilter.innerHTML = `<option value="all">All (${DATA.publications.length})</option>` +
+      years.map(y => `<option value="${escapeHtml(y)}">${escapeHtml(y)}</option>`).join("");
+
+    function formatAuthors(authors) {
+      return authors.map(a => {
+        const escaped = escapeHtml(a);
+        return a.includes("Razavi") ? `<b>${escaped}</b>` : escaped;
+      }).join(", ");
+    }
 
     function renderPubs() {
       const val = yearFilter.value;
@@ -1275,20 +1617,25 @@
           const searchMatch = !searchTerm ||
             p.title.toLowerCase().includes(searchTerm) ||
             p.description.toLowerCase().includes(searchTerm) ||
+            p.authors.some(a => a.toLowerCase().includes(searchTerm)) ||
             p.tags.some(t => t.toLowerCase().includes(searchTerm));
           return yearMatch && searchMatch;
         })
-        .forEach(p => {
+        .forEach((p, idx) => {
+          const isPublished = p.status && p.status.toLowerCase().includes("published");
           const card = document.createElement("div");
           card.className = "card";
           card.innerHTML = `
-        <div class="card-title">${p.title}</div>
-        <div class="meta"><b>${p.venue}</b> • ${p.year}</div>
-        <div class="meta">${p.authors.join(", ")}</div>
-        ${p.description ? `<p class="description">${escapeHtml(p.description)}</p>` : ""}
-        <div class="tags">${p.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join(" ")}</div>
-        <div>${p.links.map(l => `<a class="inline" href="${l.href}" target="_blank" rel="noreferrer">${l.text}</a>`).join(" ")}</div>
-      `;
+            <div class="card-header-row">
+              <div class="card-title">[${idx + 1}] ${escapeHtml(p.title)}</div>
+              <span class="status-pill ${isPublished ? 'published' : ''}">${escapeHtml(p.status)}</span>
+            </div>
+            <div class="meta"><b>${escapeHtml(p.venue)}</b>${p.year !== "In Prep." ? ` • ${escapeHtml(p.year)}` : ""}</div>
+            <div class="meta">${formatAuthors(p.authors)}</div>
+            ${p.description ? `<p class="description">${escapeHtml(p.description)}</p>` : ""}
+            <div class="tags">${p.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join(" ")}</div>
+            ${p.links && p.links.length ? `<div style="margin-top:8px;">${p.links.map(l => `<a class="inline" href="${l.href}" target="_blank" rel="noreferrer">${escapeHtml(l.text)}</a>`).join(" ")}</div>` : ""}
+          `;
           pubGrid.appendChild(card);
         });
     }
@@ -1296,16 +1643,33 @@
     pubSearch.addEventListener("input", renderPubs);
     renderPubs();
 
-    // Projects
+    // Work Experience Timeline
+    const timeline = document.getElementById("timeline");
+    DATA.experience.forEach(e => {
+      const item = document.createElement("div");
+      item.className = "timeline-item";
+      item.innerHTML = `
+        <div class="card">
+          <div class="card-header-row">
+            <div class="card-title" style="margin-bottom:2px;">${escapeHtml(e.role)} <span style="color:var(--muted);font-weight:400;">| ${escapeHtml(e.org)}</span></div>
+            <div class="meta" style="margin:0;">${escapeHtml(e.date)}</div>
+          </div>
+          ${e.bullets && e.bullets.length ? `<ul style="margin:10px 0 0 20px;line-height:1.6;">` + e.bullets.map(b => `<li>${escapeHtml(b)}</li>`).join("") + `</ul>` : ""}
+        </div>
+      `;
+      timeline.appendChild(item);
+    });
+
+    // Selected Projects
     const projGrid = document.getElementById("projGrid");
     DATA.projects.forEach(pr => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
-    <div class="card-title">${pr.title}</div>
-    <p class="description">${escapeHtml(pr.blurb)}</p>
-    <div class="tags">${pr.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join(" ")}</div>
-  `;
+        <div class="card-title">${escapeHtml(pr.title)}</div>
+        <p class="description">${escapeHtml(pr.blurb)}</p>
+        <div class="tags">${pr.tags.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join(" ")}</div>
+      `;
       projGrid.appendChild(card);
     });
 
@@ -1314,48 +1678,37 @@
     const taList = document.getElementById("taList");
     DATA.lecturer.forEach(t => {
       const li = document.createElement("li");
-      li.innerHTML = `<span>${t.title}</span><span>${t.date}</span>`;
+      li.innerHTML = `<span><b>${escapeHtml(t.title)}</b></span><span class="meta" style="margin:0;">${escapeHtml(t.date)}</span>`;
       lecturerList.appendChild(li);
     });
     DATA.ta.forEach(t => {
       const li = document.createElement("li");
-      li.innerHTML = `<span>${t.title}</span><span>${t.date}</span>`;
+      li.innerHTML = `<span>${escapeHtml(t.title)}</span><span class="meta" style="margin:0;">${escapeHtml(t.date)}</span>`;
       taList.appendChild(li);
     });
 
-    // Experience with timeline
-    const timeline = document.getElementById("timeline");
-    DATA.experience.forEach(e => {
-      const item = document.createElement("div");
-      item.className = "timeline-item";
-      item.innerHTML = `
-    <div class="card">
-      <div class="card-title">${escapeHtml(e.role)} — ${escapeHtml(e.org)}</div>
-      <div class="meta">${escapeHtml(e.date)}</div>
-      ${e.bullets && e.bullets.length ? `<ul style="margin:8px 0 0 20px;">` + e.bullets.map(b => `<li>${escapeHtml(b)}</li>`).join("") + `</ul>` : ""}
-    </div>
-  `;
-      timeline.appendChild(item);
+    // Skills & Languages
+    const skillsWrap = document.getElementById("skillsWrap");
+    Object.entries(DATA.skills).forEach(([groupName, items]) => {
+      const group = document.createElement("div");
+      group.className = "skill-group";
+      const title = document.createElement("div");
+      title.className = "group-title";
+      title.textContent = groupName;
+      const tags = document.createElement("div");
+      tags.className = "tags";
+      items.forEach(s => {
+        const span = document.createElement("span");
+        span.className = "tag";
+        span.textContent = s;
+        tags.appendChild(span);
+      });
+      group.appendChild(title);
+      group.appendChild(tags);
+      skillsWrap.appendChild(group);
     });
 
-
-    // Education
-    const eduList = document.getElementById("eduList");
-    if (eduList && DATA.education) {
-      DATA.education.forEach(e => {
-        const li = document.createElement("li");
-        li.className = "edu-item";
-        li.innerHTML = `
-      <div class="degree">${escapeHtml(e.degree)}</div>
-      <div class="school">${escapeHtml(e.school)}</div>
-      <div class="meta">${escapeHtml(e.dates)}${e.gpa ? " • GPA: " + escapeHtml(e.gpa) : ""}</div>
-      ${e.thesis ? `<div class="extra"><b>Thesis:</b> ${escapeHtml(e.thesis)}${e.thesis_score ? ` (Score: ${escapeHtml(e.thesis_score)})` : ""}</div>` : ""}
-    `;
-        eduList.appendChild(li);
-      });
-    }
-
-    // Honors
+    // Honors, Awards & Academic Service
     const honorsList = document.getElementById("honorsList");
     DATA.honors.forEach(h => {
       const li = document.createElement("li");
@@ -1375,37 +1728,31 @@
       certList.appendChild(li);
     });
 
-    // Skills
-    const skillsWrap = document.getElementById("skillsWrap");
-    skillsWrap.innerHTML = "";
-    const toTitle = (key) => key.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
-    Object.entries(DATA.skills).forEach(([groupName, items]) => {
-      const group = document.createElement("div");
-      group.className = "skill-group";
-      const title = document.createElement("div");
-      title.className = "group-title";
-      title.textContent = toTitle(groupName);
-      const tags = document.createElement("div");
-      tags.className = "tags column";
-      items.forEach(s => {
-        const span = document.createElement("span");
-        span.className = "tag";
-        span.textContent = s;
-        tags.appendChild(span);
-      });
-      group.appendChild(title);
-      group.appendChild(tags);
-      skillsWrap.appendChild(group);
+    // References
+    const refGrid = document.getElementById("refGrid");
+    DATA.references.forEach(ref => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="card-title">${escapeHtml(ref.name)}</div>
+        <div class="meta">${escapeHtml(ref.role)}</div>
+        <div class="meta">${escapeHtml(ref.org)}</div>
+        <div style="margin-top:10px;">
+          <a class="inline" href="mailto:${escapeHtml(ref.email)}">${escapeHtml(ref.email)}</a>
+        </div>
+      `;
+      refGrid.appendChild(card);
     });
 
-    // Elsewhere
+    // Elsewhere / Contact
     const elsewhere = document.getElementById("elsewhere");
     DATA.elsewhere.forEach(e => {
       const li = document.createElement("li");
+      const isExternal = e.href.startsWith("http");
       li.innerHTML = `
-    <span><span class="icon" data-lucide="${e.icon}"></span> ${escapeHtml(e.label)}</span>
-    <span><a class="inline" href="${e.href}" target="_blank" rel="noreferrer">${escapeHtml(e.value)}</a></span>
-  `;
+        <span><span class="icon" data-lucide="${e.icon}"></span> ${escapeHtml(e.label)}</span>
+        <span><a class="inline" href="${e.href}" ${isExternal ? 'target="_blank" rel="noreferrer"' : ''}>${escapeHtml(e.value)}</a></span>
+      `;
       elsewhere.appendChild(li);
     });
 
